@@ -5,8 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
  
 
@@ -30,9 +28,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 		EmailSender.sendMail("revanhj1993@gmail.com", "sunday14031993", "D", str);
 	}*/
 	}
-	
-	  @Bean public BCryptPasswordEncoder bCryptPasswordEncoder() { return new
-	  BCryptPasswordEncoder(); }
-	 
+	/*
+	 * @Bean public BCryptPasswordEncoder bCryptPasswordEncoder() { return new
+	 * BCryptPasswordEncoder(); }
+	 */ 
 	}
  

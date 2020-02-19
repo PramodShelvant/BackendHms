@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hms.management.model.UserRegistration;
@@ -23,8 +22,8 @@ public class UserRegistrationServiceImpl implements UserRegistrationService{
 	public UserRegistrationRepository userRegistrationRepository;
 
 	
-	@Autowired
-	public BCryptPasswordEncoder bCryptPasswordEncoder;
+	//@Autowired
+	//public BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Override
 	public Map<String, Object> registration(UserRegistration userRegistration) {
 		Map<String, Object> response = new HashMap<String, Object>();

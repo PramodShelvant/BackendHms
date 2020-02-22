@@ -1,5 +1,9 @@
 package com.hms.management.repository;
 
-public interface DoctorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.hms.management.model.Doctor;
+
+public interface DoctorRepository extends JpaRepository<Doctor, Integer>{
 
 }

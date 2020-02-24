@@ -44,5 +44,10 @@ public class DoctorController {
 			return doctorServiceImpl.getAllDoctor();
 			 
 	    }
-	 
+		@CrossOrigin
+		@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
+        public String deleteDoctor(@PathVariable int id) {
+			return doctorServiceImpl.deleteDoctor(id);
+		
+		}
 }

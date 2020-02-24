@@ -19,6 +19,8 @@ public class DoctorServiceImpl implements DoctorService{
 	
 	@Autowired
 	public DoctorRepository doctorRepository;
+	
+	
 	@Override
 	public Doctor addDoctor(Doctor doctor) {
  		return doctorRepository.saveAndFlush(doctor);
@@ -36,7 +38,8 @@ public class DoctorServiceImpl implements DoctorService{
 
 	@Override
 	public String deleteDoctor(int id) {
- 		return null;
+ 	doctorRepository.deleteById(id);
+	return "doctor details deleted succesful";
 	}
 
 }

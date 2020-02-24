@@ -36,8 +36,8 @@ public class RecieptionServiceImpl implements RecieptionService{
 
 	@Override
 	public String delteRecieption(int id) {
-		
-		return null;
+		recieptionrepository.deleteById(id);
+		return "delete succesful";
  		
 	}
 

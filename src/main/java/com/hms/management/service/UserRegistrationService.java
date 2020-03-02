@@ -9,8 +9,9 @@ public interface UserRegistrationService {
 	
 	public Map<String, Object> registration(UserRegistration userRegistration);
 	public Map<String, Object> userLogIn(UserRegistration userRegistration);
-	List<UserRegistration> fetchAllUser();
-	List<UserRegistration> getAllregistration(Integer pageNo, Integer pageSize, String sortBy);
+	public List<UserRegistration> fetchAllUser();
+	public List<UserRegistration> getAllregistration(Integer pageNo, Integer pageSize, String sortBy);
+	public Object deleteUserRegistration(int id);
 
 
 }

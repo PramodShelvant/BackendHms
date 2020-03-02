@@ -50,4 +50,10 @@ public class PhoneCallLogListController {
 		PhoneCallLogList updated = phoneCallLogListServiceImpl.UpdatePhoneCalls(phoneCallLogList);
         return new ResponseEntity<PhoneCallLogList>(updated, new HttpHeaders(), HttpStatus.OK);
     }
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePhoneCallLogList(@PathVariable int id) {
+		return phoneCallLogListServiceImpl.deletePhoneCallLogList(id);
+		
+	}
 }

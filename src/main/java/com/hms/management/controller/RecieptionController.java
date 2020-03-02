@@ -48,5 +48,10 @@ public class RecieptionController {
 		return recieptionServiceImpl.delteRecieption(id);
 		
 	}
-	
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteRecieption(@PathVariable int id) {
+		return recieptionServiceImpl.deleteRecieption(id);
+		
+	}
 }

@@ -10,6 +10,8 @@ public interface OperationTheatreService {
 	public OperationTheatre addOperationTheatre(OperationTheatre operationTheatre);
 	public OperationTheatre getByIdOperationTheatre(int id) throws RecordNotFoundException;
 	public List<OperationTheatre> getAllOperationTheatre();
+	public Object deleteOperationTheatre(int id);
+	public List<OperationTheatre> getByPatientId(String patientId);
 
 
 }

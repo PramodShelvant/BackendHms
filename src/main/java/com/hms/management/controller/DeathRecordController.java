@@ -39,4 +39,11 @@ public class DeathRecordController {
     public DeathRecord getByIdDeathRecord(@PathVariable int id) throws RecordNotFoundException {
  		return deathRecordServiceImpl.getComplainType(id);
  }
+	
+	    @CrossOrigin
+	  	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	  	public Object deleteDeathRecord(@PathVariable int id) {
+	  		return deathRecordServiceImpl.deleteDeathRecord(id);
+	  		
+	  	}	
 }

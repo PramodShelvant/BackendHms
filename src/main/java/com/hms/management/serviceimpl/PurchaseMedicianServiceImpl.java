@@ -34,4 +34,12 @@ public class PurchaseMedicianServiceImpl implements PurchaseMedicianService{
 	public List<PurchaseMedician> getAllPurchaseMedician() throws RecordNotFoundException {
  		return purchaseMedicianRepository.findAll();
 	}
+    
+	@Override
+	public Object deletePurchaseMedician(int id) {
+		Map<String, Object> map=new HashMap<>();
+		purchaseMedicianRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
+	}
 }

@@ -41,4 +41,23 @@ public class OperationTheatreController {
 		
 		 
     }
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteOperationTheatre(@PathVariable int id) {
+		return operationTheatreServiceImpl.deleteOperationTheatre(id);
+		
+	}
+	@CrossOrigin
+	@RequestMapping(value = "operationtheatre/{patientId}",method = RequestMethod.GET,produces = "application/json")
+	public List<OperationTheatre> getByPatientId(@PathVariable String patientId){
+		return operationTheatreServiceImpl.getByPatientId(patientId);
+		
+	}
 }
+
+
+
+
+
+
+

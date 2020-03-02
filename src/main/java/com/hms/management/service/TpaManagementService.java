@@ -9,8 +9,10 @@ public interface TpaManagementService {
 	
 	public TpaManagement addTpaManagement(TpaManagement tpaManagement);
 
-	TpaManagement getTpaManagement(int id) throws RecordNotFoundException;
+	public TpaManagement getTpaManagement(int id) throws RecordNotFoundException;
 
-	List<TpaManagement> getAllTpaManagement() throws RecordNotFoundException;
+	public List<TpaManagement> getAllTpaManagement() throws RecordNotFoundException;
+
+	public Object deleteTpaManagement(int id);
 
 }

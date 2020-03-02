@@ -10,7 +10,8 @@ public interface PhoneCallLogListService {
 	public PhoneCallLogList addPhoneCalls(PhoneCallLogList phoneCallLogList) throws RecordNotFoundException;
     public PhoneCallLogList getphoneCalls(int id) throws RecordNotFoundException;
     public List<PhoneCallLogList> getAllphoneCalls() throws RecordNotFoundException;
-	PhoneCallLogList UpdatePhoneCalls(PhoneCallLogList phoneCallLogList) throws RecordNotFoundException;
+	public PhoneCallLogList UpdatePhoneCalls(PhoneCallLogList phoneCallLogList) throws RecordNotFoundException;
+	public Object deletePhoneCallLogList(int id);
  
 
 

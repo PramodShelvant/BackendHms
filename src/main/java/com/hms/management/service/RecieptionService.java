@@ -14,4 +14,5 @@ public interface RecieptionService {
 	public Optional<Recieption> getRecieption(int id) throws RecordNotFoundException;
     public List<Recieption> getAllRecieption() throws RecordNotFoundException;
     public String  delteRecieption(int id);
+	public Object deleteRecieption(int id);
 }

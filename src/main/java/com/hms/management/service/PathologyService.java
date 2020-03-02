@@ -12,6 +12,7 @@ public interface PathologyService {
 	public Pathology getPathology(int id) throws RecordNotFoundException;
 	public List<Pathology> getAllPathology();
 	public Pathology getByPatientid(String patientId);
+	public Object deletePathology(int id);
 
 
 

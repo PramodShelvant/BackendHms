@@ -1,7 +1,9 @@
 package com.hms.management.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,14 @@ public class FinanceIncomeServiceImpl implements FinanceIncomeService{
 	}
 	public List<FinanceIncome> getAllFinanceIncome() {
  		return financeIncomeRepository.findAll();
+	}
+	
+	@Override
+	public Object deleteFinanceIncome(int id) {
+		Map<String, Object> map=new HashMap<>();
+		financeIncomeRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 	 
 }

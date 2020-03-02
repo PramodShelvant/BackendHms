@@ -82,5 +82,10 @@ public class PurchaseMedicianController {
     public List<PurchaseMedician> getAllMedicians() throws RecordNotFoundException {
  		return purchaseMedicianServiceImpl.getAllPurchaseMedician();
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePurchaseMedician(@PathVariable int id) {
+		return purchaseMedicianServiceImpl.deletePurchaseMedician(id);
+		
+	}
 }

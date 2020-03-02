@@ -77,5 +77,10 @@ public class FinanceIncomeController {
     public List<FinanceIncome> getAllDeathRecord() throws RecordNotFoundException {
  		return financeIncomeServiceImpl.getAllFinanceIncome();
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteFinanceIncome(@PathVariable int id) {
+		return financeIncomeServiceImpl.deleteFinanceIncome(id);
+		
+	}
 }

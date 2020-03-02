@@ -27,6 +27,7 @@ public class OperationTheatre {
  	private String operationName;
 	private String operationDate;
 	private String operationType;
+	private String patientName;
  	private String consultantDoctor;
 	private String assConsultant1;
 	private String assConsultant2;
@@ -35,6 +36,7 @@ public class OperationTheatre {
 	private String otTechnician;
 	private String otAssistant;
 	private String tpa;
+	private String action;
  	private String selectCtegory;;
 	private String code;
 	private String standardCharge;

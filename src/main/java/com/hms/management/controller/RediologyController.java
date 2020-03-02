@@ -38,6 +38,11 @@ public class RediologyController {
     public List<Rediology> getAllRediology() throws RecordNotFoundException {
  		return rediologyServiceImpl.getAllRediology();
 	}
-	
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteRediology(@PathVariable int id) {
+		return rediologyServiceImpl.deleteRediology(id);
+		
+	}
 	 
 }

@@ -14,4 +14,6 @@ public interface PurchaseMedicianService {
 
 	List<PurchaseMedician> getAllPurchaseMedician() throws RecordNotFoundException;
 
+	Object deletePurchaseMedician(int id);
+
 }

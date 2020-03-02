@@ -8,10 +8,12 @@ import com.hms.management.model.Medician;
 
 public interface MedicianService {
 
-	Map<String, Object> addMedician(Medician medician) throws RecordNotFoundException;
+	public Map<String, Object> addMedician(Medician medician) throws RecordNotFoundException;
 
-	Medician getMedician(int id) throws RecordNotFoundException;
+	public Medician getMedician(int id) throws RecordNotFoundException;
 
-	List<Medician> getAllMedician() throws RecordNotFoundException;
+	public List<Medician> getAllMedician() throws RecordNotFoundException;
+
+	public Object deleteMedician(int id);
 
 }

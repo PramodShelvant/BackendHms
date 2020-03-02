@@ -12,5 +12,6 @@ public interface ComplainTypeService {
 	public ComplainType addComplainType(ComplainType complainType);
     public List<ComplainType> getAllComplainType() throws RecordNotFoundException;
 	public ComplainType getComplainType(int id) throws RecordNotFoundException;
+	public Object deleteComplainType(int id);
 
 }

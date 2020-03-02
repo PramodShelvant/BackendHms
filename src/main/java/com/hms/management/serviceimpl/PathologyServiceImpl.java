@@ -1,7 +1,9 @@
 package com.hms.management.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,13 @@ public class PathologyServiceImpl implements PathologyService{
 	@Override
 	public Pathology getByPatientid(String patientId) {
  		return pathologyRepository.findByPatientId(patientId);
+	}
+
+	@Override
+	public Object deletePathology(int id) {
+		Map<String, Object> map=new HashMap<String, Object>();
+		pathologyRepository.deleteById(id);
+		map.put("Status", 1);
+ 		return map;
 	}
 }

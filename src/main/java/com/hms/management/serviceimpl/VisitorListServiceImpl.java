@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,13 @@ public class VisitorListServiceImpl implements VisitorListService{
 
 	public List<VisitorList> getAllVisitorList() {
  		return visitorListRepository.findAll();
+	}
+
+	@Override
+	public Object deleteVisitorList(int id) {
+		Map<String, Object> map=new HashMap<>();
+		visitorListRepository.deleteById(id);
+		map.put("status",1);
+ 		return map;
 	}
 }

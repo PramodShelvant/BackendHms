@@ -1,5 +1,7 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -36,4 +38,12 @@ public class MedicianDetailsServiceImpl implements MedicianDetailsservice{
           throw new RecordNotFoundException("No medicianDetails record exist for given id");
       }
  	}
+	
+	@Override
+	public Object deleteMedicianDetails(int id) {
+		Map<String, Object> map=new HashMap<>();
+		medicianDetailsRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
+	}
 }

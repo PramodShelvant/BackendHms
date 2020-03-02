@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hms.management.beans.UserRegistrationBean;
 import com.hms.management.model.UserRegistration;
 import com.hms.management.serviceimpl.UserRegistrationServiceImpl;
-@CrossOrigin()
 @RestController
 public class UserRegistrationController {
 
@@ -76,7 +76,7 @@ public class UserRegistrationController {
  		response.put("msg",userRegistrationServiceImpl.registration(n));
  		return response;
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value="login", method = RequestMethod.POST, produces = "application/json")
     public Map<String, Object> logIn(@RequestBody UserRegistration userRegistration){
 		Map<String, Object> response=new HashMap<String, Object>();
@@ -91,7 +91,12 @@ public class UserRegistrationController {
  		return userRegistrationServiceImpl.fetchAllUser();
 	}
 	
-	 
+	@CrossOrigin
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteUserRegistration(@PathVariable int id) {
+		return userRegistrationServiceImpl.deleteUserRegistration(id);
+		
+	}
 	 
 	/*
 	 * @RequestMapping(value="/getallregistration", method = RequestMethod.GET,

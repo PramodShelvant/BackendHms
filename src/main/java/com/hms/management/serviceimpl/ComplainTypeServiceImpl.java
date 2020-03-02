@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +32,14 @@ public class ComplainTypeServiceImpl implements ComplainTypeService{
 	@Override
 	public List<ComplainType> getAllComplainType() throws RecordNotFoundException {
  		return complainTypeRepository.findAll();
+	}
+
+
+	@Override
+	public Object deleteComplainType(int id) {
+		Map<String, Object> map=new HashMap<>();
+		complainTypeRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

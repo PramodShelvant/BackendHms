@@ -52,4 +52,10 @@ public class PathologyController {
         //map.put("pathology details", new ResponseEntity<Pathology>(p, new HttpHeaders(), HttpStatus.OK));
 		return pathologyServiceImpl.getByPatientid(patientId);
 	}
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePathology(@PathVariable int id) {
+		return pathologyServiceImpl.deletePathology(id);
+		
+	}
 }

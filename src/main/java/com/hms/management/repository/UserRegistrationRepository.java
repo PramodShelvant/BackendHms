@@ -10,4 +10,8 @@ public interface UserRegistrationRepository extends JpaRepository<UserRegistrati
 
 	UserRegistration findByMobileNo(String mobileNo);
 
+	UserRegistration findByUserId(String patientId);
+
+	//Object save(Appointment app);
+
 }

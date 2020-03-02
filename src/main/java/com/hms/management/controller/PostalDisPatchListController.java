@@ -79,5 +79,10 @@ public class PostalDisPatchListController {
     public List<PostalDisPatchList> getAllPostalDisPatchList() throws RecordNotFoundException {
   		return postalDisPatchListServiceImpl.getAllPostDisList();
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePostalDisPatchList(@PathVariable int id) {
+		return postalDisPatchListServiceImpl.deletePostalDisPatchList(id);
+		
+	}
 }

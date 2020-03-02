@@ -10,5 +10,6 @@ public interface DeathRecordService {
 	public DeathRecord addDeathRecord(DeathRecord deathRecord);
 	public List<DeathRecord> getAllDeathRecord();
 	DeathRecord getComplainType(int id) throws RecordNotFoundException;
+	Object deleteDeathRecord(int id);
 
 }

@@ -11,6 +11,7 @@ public interface InPatientService {
 	public InPatient addInPatient(InPatient inPatient) throws RecordNotFoundException;
  	public List<InPatient> getAllInPatient() throws RecordNotFoundException;
 	public Object getInPatient(String patientId) throws RecordNotFoundException;
+	public Object deleteInPatient(int id);
 
 
 }

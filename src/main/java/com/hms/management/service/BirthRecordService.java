@@ -11,5 +11,6 @@ public interface BirthRecordService {
 	public BirthRecord addBirthRecord(BirthRecord BirthRecord) throws RecordNotFoundException;
     public BirthRecord getBirthRecord(int id) throws RecordNotFoundException;
     public List<BirthRecord> getAllBirthRecord() throws RecordNotFoundException;
+	public Object deleteBirthRecord(int id);
 
 }

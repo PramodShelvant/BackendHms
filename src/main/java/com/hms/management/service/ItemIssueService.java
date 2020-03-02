@@ -11,5 +11,6 @@ public interface ItemIssueService {
 	public ItemIssue addItemIssue(ItemIssue itemIssue) throws RecordNotFoundException;
 	public ItemIssue getItemIssueById(int id) throws RecordNotFoundException;
 	public List<ItemIssue> getAllItemIssue() throws RecordNotFoundException;
+	public Object deleteItemIssue(int id);
 
 }

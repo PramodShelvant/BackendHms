@@ -88,4 +88,11 @@ public class MedicianController {
     public List<Medician> getAllMedicians() throws RecordNotFoundException {
  		return medicianServiceImpl.getAllMedician();
     }
+    
+    @CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteMedician(@PathVariable int id) {
+		return medicianServiceImpl.deleteMedician(id);
+		
+	}
 }

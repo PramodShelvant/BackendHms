@@ -35,6 +35,8 @@ public class BloodIssue{
 	private String lot;
 	private String bagNo;
 	private String remark;
+	private String billNo;
+	private String action;
 	private Date createdAt;
 	private Date updatedAt;
 }

@@ -1,7 +1,9 @@
 package com.hms.management.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,12 @@ public class ItemIssueServiceImpl implements ItemIssueService {
 	public List<ItemIssue> getAllItemIssue() throws RecordNotFoundException {
   	 		return itemIssueRepository.findAll();
 		
+	}
+	@Override
+	public Object deleteItemIssue(int id) {
+		Map<String, Object> map=new HashMap<>();
+		itemIssueRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

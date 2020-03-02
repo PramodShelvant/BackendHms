@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -101,6 +99,12 @@ public class PatientRegistrationController {
 	@RequestMapping(value = {"","receptionist/{id}","admin/{id}"}, method = RequestMethod.GET, produces = "application/json")
 	public List<PatientRegistration> getAllpatientregistration(){
 		return patientRegistrationServiceImpl.getAllPatientRegistration();
+		
+	}
+    @CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePatientRegistration(PatientRegistration patientRegistration) {
+		return patientRegistrationServiceImpl.deletePatientRegistration(patientRegistration);
 		
 	}
 }

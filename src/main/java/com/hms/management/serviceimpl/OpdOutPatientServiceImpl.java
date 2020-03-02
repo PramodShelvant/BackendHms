@@ -2,7 +2,9 @@ package com.hms.management.serviceimpl;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,5 +39,13 @@ public class OpdOutPatientServiceImpl implements OpdOutPatientService{
 	@Override
 	public List<OpdOutPatient> getByPatientId(String patientId) {
  		return opdOutPatientRepository.findByPatientId(patientId);
+	}
+	
+	@Override
+	public Object deleteOpdOutPatient(int id) {
+		Map<String, Object> map=new HashMap<>();
+		opdOutPatientRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

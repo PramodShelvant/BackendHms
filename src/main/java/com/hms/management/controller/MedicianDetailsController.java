@@ -1,6 +1,7 @@
 package com.hms.management.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,4 +30,10 @@ public class MedicianDetailsController {
 	public MedicianDetails getMedicianDetails(@PathVariable int mid) throws RecordNotFoundException {
 		return medicianDetailsServiceImpl.getMedicianDetails(mid);
 	}
+	    @CrossOrigin
+		@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+		public Object deleteMedicianDetails(@PathVariable int id) {
+			return medicianDetailsServiceImpl.deleteMedicianDetails(id);
+			
+		}
 }

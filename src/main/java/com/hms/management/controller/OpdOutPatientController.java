@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hms.management.exception.RecordNotFoundException;
 import com.hms.management.model.OpdOutPatient;
 import com.hms.management.serviceimpl.OpdOutPatientServiceImpl;
-@CrossOrigin
+@CrossOrigin()
 @RestController
 @RequestMapping("/opdoutpatient")
 public class OpdOutPatientController {
@@ -54,5 +54,10 @@ public class OpdOutPatientController {
 		//map.put("details of inpatient", opdOutPatientServiceImpl.getOutPatient(id));
 		return opdOutPatientServiceImpl.getByPatientId(patientId);
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteOpdOutPatient(@PathVariable int id) {
+		return opdOutPatientServiceImpl.deleteOpdOutPatient(id);
+		
+	}
 }

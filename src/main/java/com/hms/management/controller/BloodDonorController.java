@@ -41,5 +41,16 @@ public class BloodDonorController {
     public List<BloodDonor> getBloodDonorAll() throws RecordNotFoundException {
  		return bloodDonorServiceImpl.getAllBloodDonor();
     }
-
+	@CrossOrigin
+  	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+  	public Object deleteBloodDonor(@PathVariable int id) {
+         return bloodDonorServiceImpl.deleteBloodDonor(id);
+  		
+  	}	
+	
+	@CrossOrigin
+  	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
+  	public Object updateBloodDonor(@RequestBody BloodDonor bloodDonor) {
+         return bloodDonorServiceImpl.updateBloodDonor(bloodDonor);
+	}
 }

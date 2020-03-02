@@ -2,7 +2,9 @@ package com.hms.management.serviceimpl;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +45,14 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 	@Override
 	public List<PatientRegistration> getAllPatientRegistration() {
  		return patientRegistrationRepository.findAll();
+	}
+
+
+	@Override
+	public Object deletePatientRegistration(PatientRegistration patientRegistration) {
+		Map<String, Object> map=new HashMap<>();
+		patientRegistrationRepository.delete(patientRegistration);  
+		map.put("msg", "patient registration deleted succesfully");
+ 		return map;
 	}
 }

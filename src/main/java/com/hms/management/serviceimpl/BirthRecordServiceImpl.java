@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,13 @@ public class BirthRecordServiceImpl implements BirthRecordService{
 	@Override
 	public List<BirthRecord> getAllBirthRecord() throws RecordNotFoundException {
  		return birthRecordRepository.findAll();
+	}
+
+	@Override
+	public Object deleteBirthRecord(int id) {
+		Map<String, Object> map=new HashMap<>();
+		birthRecordRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

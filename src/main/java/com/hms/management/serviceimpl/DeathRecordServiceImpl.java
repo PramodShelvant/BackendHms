@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,14 @@ public class DeathRecordServiceImpl implements DeathRecordService{
 
 	public List<DeathRecord> getAllDeathRecord() {
  		return deathRecordRepository.findAll();
+	}
+
+	@Override
+	public Object deleteDeathRecord(int id) {
+		Map<String, Object> map=new HashMap<>();
+		deathRecordRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 
 }

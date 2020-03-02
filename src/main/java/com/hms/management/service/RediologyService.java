@@ -9,9 +9,9 @@ public interface RediologyService {
 
 	
 	public Rediology addRediology(Rediology rediology) throws RecordNotFoundException;
-
-	Rediology getRediology(int id) throws RecordNotFoundException;
-    List<Rediology> getAllRediology() throws RecordNotFoundException;
+    public Rediology getRediology(int id) throws RecordNotFoundException;
+    public  List<Rediology> getAllRediology() throws RecordNotFoundException;
+    public Object deleteRediology(int id);
 
  
 }

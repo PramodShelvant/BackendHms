@@ -11,5 +11,6 @@ public interface PostalRecieveListService {
 	public PostalRecieveList addPostalRecieveList(PostalRecieveList postalRecieveList);
 	public PostalRecieveList getpostalRecieveList(int id) throws RecordNotFoundException;
     public List<PostalRecieveList> getAllpostalRecieveList() throws RecordNotFoundException;
+	public Object deletePostalRecieveList(int id);
  
 }

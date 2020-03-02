@@ -10,6 +10,8 @@ public interface AmbulanceCallService {
 	public AmbulanceCall addAmbulanceCall(AmbulanceCall ambulanceCall);
     public List<AmbulanceCall> getAllAmbulanve() throws RecordNotFoundException;
 	public AmbulanceCall getAmbulanceCall(int id) throws RecordNotFoundException;
+	public Object deleteAmbulanceCall(int id);
+	public Object updateAmbulance(AmbulanceCall ambulanceCall);
 
 
 }

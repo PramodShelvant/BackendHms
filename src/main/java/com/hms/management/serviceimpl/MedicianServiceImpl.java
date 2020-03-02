@@ -34,4 +34,10 @@ public class MedicianServiceImpl implements MedicianService{
 	public List<Medician> getAllMedician() throws RecordNotFoundException {
  		return medicianRepository.findAll();
 	}
+	@Override
+	public Object deleteMedician(int id) {
+		Map<String, Object> map=new HashMap<>();
+		medicianRepository.deleteById(id);
+ 		return map;
+	}
 }

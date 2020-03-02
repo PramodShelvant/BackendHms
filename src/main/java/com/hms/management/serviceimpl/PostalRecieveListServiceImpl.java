@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +38,13 @@ public class PostalRecieveListServiceImpl implements PostalRecieveListService{
 	@Override
 	public List<PostalRecieveList> getAllpostalRecieveList() throws RecordNotFoundException {
  		return postalRecieveListRepository.findAll();
+	}
+
+	@Override
+	public Object deletePostalRecieveList(int id) {
+		Map<String, Object> map=new HashMap<>();
+		postalRecieveListRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

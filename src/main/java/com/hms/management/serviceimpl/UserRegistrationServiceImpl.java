@@ -103,5 +103,12 @@ public class UserRegistrationServiceImpl implements UserRegistrationService{
 	public List<UserRegistration> getAllregistration(Integer pageNo, Integer pageSize, String sortBy) {
  		return userRegistrationRepository.findAll();
 	}
+@Override
+public Object deleteUserRegistration(int id) {
+	Map<String, Object> map=new HashMap<>();
+	userRegistrationRepository.deleteById(id);
+	map.put("status", 1);
+ 	return map;
+}
 }
 

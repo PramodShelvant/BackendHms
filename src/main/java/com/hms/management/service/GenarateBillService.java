@@ -11,5 +11,6 @@ public interface GenarateBillService {
 	public GenarateBills addGenarateBill(GenarateBills genarateBills) throws RecordNotFoundException;
     public List<GenarateBills> getAll() throws RecordNotFoundException;
 	public GenarateBills getGenarateBills(int id) throws RecordNotFoundException;
+	public Object deleteGenarateBills(int id);
 
 }

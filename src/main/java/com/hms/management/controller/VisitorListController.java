@@ -102,4 +102,11 @@ public class VisitorListController {
     public List<VisitorList> getComplainTypeAll() throws RecordNotFoundException {
 		 return visitorListServiceImpl.getAllVisitorList();
     }
+    
+    @CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteVisitorList(@PathVariable int id) {
+		return visitorListServiceImpl.deleteVisitorList(id);
+		
+	}
 }

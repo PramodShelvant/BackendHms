@@ -14,7 +14,7 @@ import com.hms.management.exception.RecordNotFoundException;
 import com.hms.management.model.InPatient;
 import com.hms.management.serviceimpl.InPatientServiceImpl;
 
-@CrossOrigin
+@CrossOrigin()
 @RestController
 @RequestMapping("/inpatient")
 public class InPatientController {
@@ -41,5 +41,10 @@ public class InPatientController {
     public List<InPatient> getAll() throws RecordNotFoundException {
  		return inPatientServiceImpl.getAllInPatient();
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteInPatient(@PathVariable int id) {
+		return inPatientServiceImpl.deleteInPatient(id);
+		
+	}
 }

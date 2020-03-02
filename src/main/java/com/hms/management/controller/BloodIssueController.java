@@ -16,7 +16,7 @@ import com.hms.management.serviceimpl.BloodIssueServiceImpl;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/bloodissue")
+@RequestMapping("bloodissue")
 public class BloodIssueController {
 
 	
@@ -41,4 +41,11 @@ public class BloodIssueController {
     public List<BloodIssue> getAllBloodDonorissue() throws RecordNotFoundException {
  		return bloodIssueServiceImpl.getAllBloodIssue();
     }
+	
+	@CrossOrigin
+  	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+  	public Object deleteBloodIssue(@PathVariable int id) {
+         return bloodIssueServiceImpl.deleteBloodIssue(id);
+  		
+  	}	
 }

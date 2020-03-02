@@ -12,5 +12,7 @@ public interface BloodDonorService {
 	public BloodDonor addBloodDonor(BloodDonor bloodDonor);
     public BloodDonor getBloodDonor(int id) throws RecordNotFoundException;
     public List<BloodDonor> getAllBloodDonor() throws RecordNotFoundException;
+	public Object deleteBloodDonor(int id);
+	public Object updateBloodDonor(BloodDonor bloodDonor);
 
 }

@@ -81,5 +81,10 @@ public class PostalRecieveListController {
 	 public List<PostalRecieveList> getAllPostalRecieveList() throws RecordNotFoundException {
  		return postalRecieveListServiceImpl.getAllpostalRecieveList();
     }
-
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deletePostalRecieveList(@PathVariable int id) {
+		return postalRecieveListServiceImpl.deletePostalRecieveList(id);
+		
+	}
 }

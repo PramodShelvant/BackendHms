@@ -1,7 +1,9 @@
 package com.hms.management.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,13 @@ public class FinanceExpensesServiceImpl implements FinanceExpensesService{
 	@Override
 	public List<FinanceExpenses> getAllFinanceExpenses() throws RecordNotFoundException {
  		return financeExpensesRepository.findAll();
+	}
+
+	@Override
+	public Object deleteFinanceExpenses(int id) {
+		Map<String, Object> map=new HashMap<>();
+		financeExpensesRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
 	}
 }

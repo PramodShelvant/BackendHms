@@ -44,4 +44,10 @@ public class TpaManagementController {
     public List<TpaManagement> getAllTpaManagement() throws RecordNotFoundException {
  		return tpaManagementServiceImpl.getAllTpaManagement();
 	}
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object deleteTpaManagement(@PathVariable int id) {
+		return tpaManagementServiceImpl.deleteTpaManagement(id);
+		
+	}
 }

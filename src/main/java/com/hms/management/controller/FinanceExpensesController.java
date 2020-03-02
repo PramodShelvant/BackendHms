@@ -79,5 +79,10 @@ public class FinanceExpensesController {
       public List<FinanceExpenses> getFinanceExpensesAll() throws RecordNotFoundException {
    		return financeExpensesServiceImpl.getAllFinanceExpenses();
       }
-
+      @CrossOrigin
+  	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+  	public Object deleteFinanceExpenses(@PathVariable int id) {
+  		return financeExpensesServiceImpl.deleteFinanceExpenses(id);
+  		
+  	}
 }

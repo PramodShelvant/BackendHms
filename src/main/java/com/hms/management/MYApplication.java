@@ -19,18 +19,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 		  return application.sources(MYApplication.class);
 	  }
 	  
-	  
-	  
-	  
 	public static void main(String[] args) {
 		SpringApplication.run(MYApplication.class, args);
-	/*String str[]= {"revanhj1993@gmail.com"};
-		EmailSender.sendMail("revanhj1993@gmail.com", "sunday14031993", "D", str);
-	}*/
+	 
 	}
-	/*
-	 * @Bean public BCryptPasswordEncoder bCryptPasswordEncoder() { return new
-	 * BCryptPasswordEncoder(); }
-	 */ 
+	
+	 // @Bean public BCryptPasswordEncoder bCryptPasswordEncoder() { 
+		//  return new BCryptPasswordEncoder();
+	//}
+	  
 	}
  

@@ -6,4 +6,6 @@ public interface MedicineCategoryService {
 	
 	public MedicineCategory addMedicineCategory(MedicineCategory medicineCategory);
 
+	public Object deleteMedicineCategory(int id);
+
 }

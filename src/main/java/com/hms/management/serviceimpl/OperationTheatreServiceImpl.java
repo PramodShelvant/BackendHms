@@ -1,7 +1,9 @@
 package com.hms.management.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +37,21 @@ public class OperationTheatreServiceImpl implements OperationTheatreService {
 	@Override
 	public List<OperationTheatre> getAllOperationTheatre() {
  		return operationTheatreRepository.findAll();
+	}
+
+	@Override
+	public Object deleteOperationTheatre(int id) {
+		Map<String, Object> map=new HashMap<>();
+		operationTheatreRepository.deleteById(id);
+		map.put("status", 1);
+ 		return map;
+	}
+
+	@Override
+	public List<OperationTheatre> getByPatientId(String patientId) {
+		//List<OperationTheatre> ol=operationTheatreRepository.findByPatientId(patientId);
+		//if(ol.size()!=0) {
+		//	OperationTheatre g=ol.get(0);
+		return operationTheatreRepository.findByPatientId(patientId);
 	}
 }

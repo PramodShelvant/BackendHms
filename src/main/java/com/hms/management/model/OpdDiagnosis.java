@@ -1,7 +1,5 @@
 package com.hms.management.model;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "diagnosis")
 
-public class Diagnosis 
-{
+public class OpdDiagnosis{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

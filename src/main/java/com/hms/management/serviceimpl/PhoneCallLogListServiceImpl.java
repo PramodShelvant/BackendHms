@@ -1,6 +1,8 @@
 package com.hms.management.serviceimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class PhoneCallLogListServiceImpl implements PhoneCallLogListService{
 		Optional<PhoneCallLogList> l= phoneCallLogListRepository.findById(phoneCallLogList.getId());
 		if(l.isPresent()) {
 			PhoneCallLogList p = l.get();
-            if(phoneCallLogList.getName()!=null){
+            if(p.getName()!=null){
             p.setName(phoneCallLogList.getName());}
             if(phoneCallLogList.getCallDuretion()!=null) {
             p.setCallDuretion(phoneCallLogList.getCallDuretion());}
@@ -55,5 +57,12 @@ public class PhoneCallLogListServiceImpl implements PhoneCallLogListService{
             return phoneCallLogList;
         }
  	}
+    @Override
+	public Object deletePhoneCallLogList(int id) {
+		Map<String, Object> map=new HashMap<String, Object>();
+ 		phoneCallLogListRepository.deleteById(id);
+ 		map.put("status", 1);
+ 		return map;
+	}
 
 }

@@ -45,4 +45,17 @@ public class AmbulanceCallController {
     public List<AmbulanceCall> getAmbulanceAll() throws RecordNotFoundException {
 		 return ambulanceCallServiceImpl.getAllAmbulanve(); 
     }
+	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	public Object delelteAmbulanceCall(@PathVariable int id) {
+		return ambulanceCallServiceImpl.deleteAmbulanceCall(id);
+	}
+
+	@CrossOrigin
+	@RequestMapping(value = "/", method = RequestMethod.PUT,produces = "application/json")
+	public Object updateAmbulance(@RequestBody AmbulanceCall ambulanceCall) {
+		//Map<String, Object> map=new HashMap<>();
+		return ambulanceCallServiceImpl.updateAmbulance(ambulanceCall);
+		
+	}
 }

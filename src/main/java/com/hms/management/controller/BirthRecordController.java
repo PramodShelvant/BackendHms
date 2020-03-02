@@ -44,12 +44,7 @@ public class BirthRecordController {
 			e.printStackTrace();
 		}
         Path path = Paths.get(UPLOADED_FOLDER + BirthRecordBean.getChildPhoto().getOriginalFilename());
-            
-
-        
-
-        
-        try {
+         try {
 			Files.write(path, bytes);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -76,5 +71,12 @@ public class BirthRecordController {
     public BirthRecord getAllBirthRecordById(@PathVariable int id) throws RecordNotFoundException {
 		 return birthRecordServiceImpl.getBirthRecord(id);
     }
+	@CrossOrigin
+  	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+  	public Object deleteBirthRecord(@PathVariable int id) {
+         return birthRecordServiceImpl.deleteBirthRecord(id);
+  		
+  	}	
+
  }
 

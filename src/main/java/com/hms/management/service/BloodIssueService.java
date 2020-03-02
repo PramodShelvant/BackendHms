@@ -9,8 +9,10 @@ public interface BloodIssueService {
 	
 	public BloodIssue addBloodIssue(BloodIssue BloodIssue);
 
-	BloodIssue getBloodIssue(int id) throws RecordNotFoundException;
+	public BloodIssue getBloodIssue(int id) throws RecordNotFoundException;
 
-	List<BloodIssue> getAllBloodIssue() throws RecordNotFoundException;
+	public List<BloodIssue> getAllBloodIssue() throws RecordNotFoundException;
+
+	public Object deleteBloodIssue(int id);
 
 }

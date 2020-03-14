@@ -13,5 +13,6 @@ public interface PostalDisPatchListService {
  	public PostalDisPatchList getPostDisList(int id) throws RecordNotFoundException;
 	public List<PostalDisPatchList> getAllPostDisList() throws RecordNotFoundException;
 	public Object deletePostalDisPatchList(int id);
+	public PostalDisPatchList addpostalDisPatchListServiceImpl(PostalDisPatchList postalDisPatchList);
 
 }

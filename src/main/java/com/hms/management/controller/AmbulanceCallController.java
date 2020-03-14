@@ -2,6 +2,8 @@ package com.hms.management.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import com.hms.management.model.AmbulanceCall;
 import com.hms.management.serviceimpl.AmbulanceCallServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 @CrossOrigin
 @RestController
 @RequestMapping("/ambulance")
@@ -29,12 +32,13 @@ public class AmbulanceCallController {
 	 
     
 	@CrossOrigin
- 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
+  	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
     public AmbulanceCall addAmbulanceCall(@RequestBody AmbulanceCall ambulanceCall) throws RecordNotFoundException{
  		 return ambulanceCallServiceImpl.addAmbulanceCall(ambulanceCall);
         }
 	
-	 @ApiOperation(value = "get ambulance")
+	// @ApiOperation(value = "get ambulance",tags = {""})
+	// @ApiResponse(code = 200, message = "will get ambulance detail by id")
      @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<AmbulanceCall> getAmbulanceCallById(@PathVariable int id) throws RecordNotFoundException {
 		 return new ResponseEntity<AmbulanceCall>(ambulanceCallServiceImpl.getAmbulanceCall(id), new HttpHeaders(), HttpStatus.OK); 

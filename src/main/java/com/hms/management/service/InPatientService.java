@@ -10,8 +10,13 @@ public interface InPatientService {
 	
 	public InPatient addInPatient(InPatient inPatient) throws RecordNotFoundException;
  	public List<InPatient> getAllInPatient() throws RecordNotFoundException;
-	public Object getInPatient(String patientId) throws RecordNotFoundException;
-	public Object deleteInPatient(int id);
+ 	public Object deleteInPatient(int id);
+  	public Object getAll();
+	public InPatient updateIpdDisCharge(InPatient inPatient);
+	public Object getByDoctorId(String doctorId, String disChargeStatus);
+	public Object getByDisChargeStatus(String disChargeStatus);
+ //	public Object getInPatient(String patientId);
+	Object getInPatient(String patientId, String status);
 
 
 }

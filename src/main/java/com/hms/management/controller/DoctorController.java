@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hms.management.exception.RecordNotFoundException;
 import com.hms.management.model.Doctor;
 import com.hms.management.serviceimpl.DoctorServiceImpl;
+import com.hms.management.serviceimpl.OpdOutPatientServiceImpl;
+import com.hms.management.serviceimpl.UserRegistrationServiceImpl;
 @CrossOrigin() 
 @RestController
 @RequestMapping("/doctor")
@@ -25,7 +27,14 @@ public class DoctorController {
 	  @Autowired 
 	  public DoctorServiceImpl doctorServiceImpl;
 	  
-	   
+	  @Autowired 
+	  public UserRegistrationServiceImpl userRegistrationServiceImpl;
+	  
+	  @Autowired 
+	  public OpdOutPatientServiceImpl opdOutPatientServiceImpl;
+	 
+	  
+	  
 	  @CrossOrigin
 		@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
 	    public Doctor addDoctor(@RequestBody Doctor doctor) {
@@ -50,4 +59,15 @@ public class DoctorController {
 			return doctorServiceImpl.deleteDoctor(id);
 		
 		}
+		
+		@CrossOrigin
+		@RequestMapping(value = "fetch/{patientId}", method = RequestMethod.GET, produces = "application/json")
+        public Object fetchOpd(@PathVariable String patientId) {
+			
+			
+			//return userRegistrationServiceImpl.fetchByUserId(id);
+			return opdOutPatientServiceImpl.getByPatientId(patientId);
+		
+		}
+
 }

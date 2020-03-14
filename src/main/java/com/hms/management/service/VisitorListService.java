@@ -10,6 +10,7 @@ public interface VisitorListService {
     public VisitorList getVisitorList(int id) throws RecordNotFoundException;
     public List<VisitorList> getAllVisitorList();
 	public Object deleteVisitorList(int id);
+	public VisitorList adVisitorList(VisitorList visitorList);
 
 
 

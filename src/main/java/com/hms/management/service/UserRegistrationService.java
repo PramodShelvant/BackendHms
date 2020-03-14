@@ -12,6 +12,7 @@ public interface UserRegistrationService {
 	public List<UserRegistration> fetchAllUser();
 	public List<UserRegistration> getAllregistration(Integer pageNo, Integer pageSize, String sortBy);
 	public Object deleteUserRegistration(int id);
+	public UserRegistration adUserRegistration(UserRegistration userRegitration);
 
 
 }

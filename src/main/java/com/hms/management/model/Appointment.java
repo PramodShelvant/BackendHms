@@ -25,8 +25,7 @@ public class Appointment {
 	private int id;
 	private String aptId;
     private String patientId;
- 	private String appointmentNo;
-	private String date;
+ 	private String date;
 	private String patientName;
 	private String gender;
 	private String email;

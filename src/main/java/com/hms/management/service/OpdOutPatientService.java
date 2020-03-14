@@ -11,8 +11,9 @@ public interface OpdOutPatientService {
 	public OpdOutPatient addOutPatient(OpdOutPatient opdOutPatient) throws RecordNotFoundException;
   	public List<OpdOutPatient> getAllOpdOutPatient() throws RecordNotFoundException;
 	public OpdOutPatient getOpdOutPatientById(int id) throws RecordNotFoundException;
-	public List<OpdOutPatient> getByPatientId(String patientId);
+	public Object getByPatientId(String patientId);
 	public Object deleteOpdOutPatient(int id);
+	public Object getByDId(String doctorId);
 
 
 

@@ -7,4 +7,5 @@ public interface BankAccountDetailsService {
 
 	
 	public BankAccountDetails getBankAccountDetails(int id) throws RecordNotFoundException;
+    public BankAccountDetails addBankAccountDetails(BankAccountDetails bankAccountDetails);
 }

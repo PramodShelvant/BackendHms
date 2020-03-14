@@ -9,11 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "UserRegistration")
 public class UserRegistration {
@@ -27,6 +29,7 @@ public class UserRegistration {
  	private String email;
 	private String password;
 	private String userId;
+	private String gender;
 	private Date signupDate;
 	private String role;
 	private String userProfile;

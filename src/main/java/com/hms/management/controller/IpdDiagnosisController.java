@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ import com.hms.management.serviceimpl.IpdDiagnosisServiceImpl;
 public class IpdDiagnosisController {
 
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	
 	
@@ -71,6 +72,12 @@ public class IpdDiagnosisController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public IpdDiagnosis getIpdDaignosis(@PathVariable int id) throws RecordNotFoundException {
 		return ipdDiagnosisServiceImpl.getIpdDiagnosis(id);
+    	
+    }
+    
+    @RequestMapping(value = "iffileisnull",method = RequestMethod.POST,produces = "application/json")
+    public IpdDiagnosis adIpdDiagnosis(@RequestBody IpdDiagnosis ipdDiagnosis) {
+		return ipdDiagnosisServiceImpl.adIpdDiagnosis(ipdDiagnosis);
     	
     }
 }

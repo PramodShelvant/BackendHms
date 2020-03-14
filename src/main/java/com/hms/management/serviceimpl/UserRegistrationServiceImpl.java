@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,5 +111,42 @@ public Object deleteUserRegistration(int id) {
 	map.put("status", 1);
  	return map;
 }
+
+public UserRegistration fetchByUserId(String userId) {
+	
+	return userRegistrationRepository.findByUserId(userId);
+
+}
+public Object fetchByRole(String role) {
+	Map<String,String> map=new HashMap<>();
+	 userRegistrationRepository.findByRole(role).forEach(item->map.put(item.getUserId(), item.getName()));
+	
+	return map;
+}
+public static void main(String ...strings) {
+	UserRegistrationServiceImpl u=new UserRegistrationServiceImpl();
+	
+	System.out.println(u.fetchByUserId("123"));
+}
+
+@Override
+public UserRegistration adUserRegistration(UserRegistration userRegitration) {
+	 return userRegistrationRepository.save(userRegitration);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

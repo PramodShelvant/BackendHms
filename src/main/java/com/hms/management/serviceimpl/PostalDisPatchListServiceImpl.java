@@ -46,4 +46,8 @@ public class PostalDisPatchListServiceImpl implements PostalDisPatchListService{
 		map.put("status", 1);
  		return map;
 	}
+    @Override
+	public PostalDisPatchList addpostalDisPatchListServiceImpl(PostalDisPatchList postalDisPatchList) {
+ 		return postalDisPatchListRepository.save(postalDisPatchList);
+	}
 }

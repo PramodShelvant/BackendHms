@@ -1,7 +1,5 @@
 package com.hms.management.model;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,12 +20,15 @@ public class Charges {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private String opdId;
 	private String chargeType; 
 	private String chargeCategory;
 	private String description;
 	private String code;
 	private String standardCharge;
 	private String date;
+	private String appliedCharge;
+	private String tpaCharge;
 	private String status;
 
 }

@@ -43,4 +43,10 @@ public class BirthRecordServiceImpl implements BirthRecordService{
 		map.put("status", 1);
  		return map;
 	}
+
+	
+	@Override
+	public BirthRecord adBirthRecord(BirthRecord birthRecord) {
+ 		return birthRecordRepository.save(birthRecord);
+	}
 }

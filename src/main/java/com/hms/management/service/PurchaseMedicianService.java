@@ -8,12 +8,14 @@ import com.hms.management.model.PurchaseMedician;
 
 public interface PurchaseMedicianService {
 
-	Map<String, Object> addPurchaseMedician(PurchaseMedician purchaseMedician) throws RecordNotFoundException ;
+	public Map<String, Object> addPurchaseMedician(PurchaseMedician purchaseMedician) throws RecordNotFoundException ;
 
-	PurchaseMedician getPurchaseMedician(int id) throws RecordNotFoundException;
+	public PurchaseMedician getPurchaseMedician(int id) throws RecordNotFoundException;
 
-	List<PurchaseMedician> getAllPurchaseMedician() throws RecordNotFoundException;
+	public List<PurchaseMedician> getAllPurchaseMedician() throws RecordNotFoundException;
 
-	Object deletePurchaseMedician(int id);
+	public Object deletePurchaseMedician(int id);
+
+	public PurchaseMedician adPurchaseMedician(PurchaseMedician purchaseMedician);
 
 }

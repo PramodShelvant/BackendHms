@@ -22,8 +22,9 @@ public class InPatient {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String patientId;
-	private String opdId;
+	private String ipdId;
  	private String appointmentDate;
+ 	private String doctorId;
 	private String caseType;
 	private String casulity;
 	private String symptoms;
@@ -32,10 +33,14 @@ public class InPatient {
 	private String height;
 	private String weight;
  	private String tpa;
-	private String consDoctor;
+	private String doctorName;
   	private String note;
   	private String creditLimit;
   	private String bedGroup;
   	private String bedNumber;
+  	
+  	private String disChargeStatus;
+  	private String summer;
+  	private String disChargeDate;
 
 }

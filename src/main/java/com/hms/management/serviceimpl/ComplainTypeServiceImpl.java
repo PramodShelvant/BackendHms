@@ -27,6 +27,7 @@ public class ComplainTypeServiceImpl implements ComplainTypeService{
 	
 	@Override
 	public ComplainType getComplainType(int id) throws RecordNotFoundException {
+		
 	 return complainTypeRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("No ComplainType record exist for given id"));
 	}
 	@Override
@@ -41,5 +42,10 @@ public class ComplainTypeServiceImpl implements ComplainTypeService{
 		complainTypeRepository.deleteById(id);
 		map.put("status", 1);
  		return map;
+	}
+
+   @Override
+	public ComplainType adComplainType(ComplainType complainType) {
+ 		return complainTypeRepository.save(complainType);
 	}
 }

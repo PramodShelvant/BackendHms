@@ -25,7 +25,7 @@ public class BirthRecordController {
 
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public BirthRecordServiceImpl birthRecordServiceImpl;
@@ -77,6 +77,12 @@ public class BirthRecordController {
          return birthRecordServiceImpl.deleteBirthRecord(id);
   		
   	}	
+	@CrossOrigin
+	@RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public BirthRecord addBirthrecird(BirthRecord birthRecord) {
+		return birthRecordServiceImpl.adBirthRecord(birthRecord);
+		
+	}
 
  }
 

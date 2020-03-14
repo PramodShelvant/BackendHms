@@ -1,7 +1,5 @@
 package com.hms.management.model;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,14 +20,14 @@ public class IpdBilling {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int patientId;
-	private int discount;
-	private String otherCharge;
+	private String patientId;
+	private float discount;
+	private float otherCharge;
 	private String date;
-	private int tax;
-	private String grossTotal;
+	private float tax;
+	private float grossTotal;
 	private float netAmount;
-	private int totalAmount;
-	private int generatedBy;
+	private float totalAmount;
+	private String generatedBy;
 	private String status;
 }

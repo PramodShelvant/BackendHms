@@ -19,6 +19,7 @@ public class VisitorListServiceImpl implements VisitorListService{
 	@Autowired
 	public VisitorListRepository visitorListRepository;
 
+	
 	@Override
 	public Object addVisitors(VisitorList visitorList) throws RecordNotFoundException {
          return visitorListRepository.save(visitorList);
@@ -45,5 +46,11 @@ public class VisitorListServiceImpl implements VisitorListService{
 		visitorListRepository.deleteById(id);
 		map.put("status",1);
  		return map;
+	}
+
+	
+	@Override
+	public VisitorList adVisitorList(VisitorList visitorList) {
+ 		return visitorListRepository.save(visitorList);
 	}
 }

@@ -1,7 +1,5 @@
 package com.hms.management.model;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,56 +15,41 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "staff")
-
 public class Staff {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String employeeId;
-	private String department;
-	private String designation;
-	private String qualification;
-	private String workExp;
-	private String specialization;
-	private String name;
-	private String surname;
-	private String fatherName;
-	private String motherName;
-	private String contactNo;
-	private String emergencyContactNo;
-	private String email;
-	private String dob;
+	private String staffId;
+	private String role;
+	private String firstName;
+	private String lastName;
+	private String gender;
 	private String maritalStatus;
 	private String dateOfJoining;
-	private String dateOfLeaving;
-	private String localAddress;
-	private String permanentAddress;
-	private String note;
-	private String image;
-	private String password;
-	private String gender;
+	private String phone;
+	private String qualification;
+	private String workExperiance;
+	private String designation;
+	private String department;
+	private String fatherName;
+	private String motherName;
 	private String bloodGroup;
+	private String dateOfBirth;
+	private String email;
+	private String photo;
+	private String Specialization;
+	private String note;
+	private String permnentAddress;
+	private String currentAddrees;
 	private String accountTitle;
-	private String bankAccountNo;
 	private String bankName;
+	private String bankBranchName;
+	private String accountNumber;
 	private String ifscCode;
-	private String bankBranch;
-	private String payscale;
-	private String basicSalary;
-	private String epfNo;
-	private String contractType;
-	private String shift;
-	private String location;
-	private String facebook;
-	private String twitter;
-	private String linkedin;
-	private String instagram;
-	private String resume;
-	private String joiningLetter;
-	private String resignationLetter;
-	private String otherDocumentName;
-	private String otherDocumentFile;
-	private int userId;
-	private int isActive;
-	private String verificationCode;
-}
+
+ 	
+ 	
+	
+ }

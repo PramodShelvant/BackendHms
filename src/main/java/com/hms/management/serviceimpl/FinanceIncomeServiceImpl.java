@@ -52,5 +52,10 @@ public class FinanceIncomeServiceImpl implements FinanceIncomeService{
 		map.put("status", 1);
  		return map;
 	}
+	
+	@Override
+	public FinanceIncome adfinanceIncome(FinanceIncome financeIncome) {
+ 		return financeIncomeRepository.save(financeIncome);
+	}
 	 
 }

@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class FinanceExpensesController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public FinanceExpensesServiceImpl financeExpensesServiceImpl;
@@ -53,7 +54,7 @@ public class FinanceExpensesController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
         n.setDocuments(UPLOADED_FOLDER + financeExpensesBean.getDocuments().getOriginalFilename());
         n.setName(financeExpensesBean.getName());
         n.setInvoiceNo(financeExpensesBean.getInvoiceNo());
@@ -84,5 +85,14 @@ public class FinanceExpensesController {
   	public Object deleteFinanceExpenses(@PathVariable int id) {
   		return financeExpensesServiceImpl.deleteFinanceExpenses(id);
   		
-  	}
+  	} 
+      
+      @CrossOrigin
+      @RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+      public FinanceExpenses adFinanceExpense(@RequestBody FinanceExpenses financeExpence) {
+		return financeExpensesServiceImpl.adFinanceExpenses(financeExpence);
+    	  
+      }
+      
+      
 }

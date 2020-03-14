@@ -1,10 +1,15 @@
 package com.hms.management.service;
 
-import com.hms.management.exception.RecordNotFoundException;
+import java.util.List;
+
 import com.hms.management.model.ConsultantRegister;
 
 public interface ConsultantRegisterService {
 
 	
-	public ConsultantRegister getConsultantRegister(int id) throws RecordNotFoundException;
-}
+ 
+	public ConsultantRegister addConsultantRegister(ConsultantRegister consultantRegister);
+
+	public  List<ConsultantRegister> getConsultantRegister(String ipdId);
+
+ }

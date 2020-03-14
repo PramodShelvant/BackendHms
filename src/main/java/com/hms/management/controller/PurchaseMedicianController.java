@@ -11,6 +11,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class PurchaseMedicianController {
 
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
     @Autowired
 	public PurchaseMedicianServiceImpl purchaseMedicianServiceImpl;
     
@@ -67,8 +68,7 @@ public class PurchaseMedicianController {
         n.setDiscount(purchaseMedicianBean.getDiscount());
         n.setTax(purchaseMedicianBean.getTax());
         n.setNetAmount(purchaseMedicianBean.getNetAmount());
-        
-		return purchaseMedicianServiceImpl.addPurchaseMedician(n);
+        return purchaseMedicianServiceImpl.addPurchaseMedician(n);
 		
     }
     
@@ -86,6 +86,13 @@ public class PurchaseMedicianController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deletePurchaseMedician(@PathVariable int id) {
 		return purchaseMedicianServiceImpl.deletePurchaseMedician(id);
+		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public PurchaseMedician adPurchaseMedician(@RequestBody PurchaseMedician PurchaseMedician) {
+		return purchaseMedicianServiceImpl.adPurchaseMedician(PurchaseMedician);
 		
 	}
 }

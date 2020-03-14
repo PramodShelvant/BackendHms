@@ -11,6 +11,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class PostalRecieveListController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//D//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public PostalRecieveListServiceImpl postalRecieveListServiceImpl;
@@ -36,8 +37,7 @@ public class PostalRecieveListController {
      public Object addPostalRecievedList(PostalRecieveListBean postalRecieveListBean) throws RecordNotFoundException {
 		Map<String,Object> map=new HashMap<String, Object>();
 		PostalRecieveList n=new PostalRecieveList();
-		if(postalRecieveListBean.getAttachDocument()!=null) {
-        byte[] bytes = null;
+         byte[] bytes = null;
 		try {
 			bytes = postalRecieveListBean.getAttachDocument().getBytes();
 		} catch (IOException e) {
@@ -58,15 +58,6 @@ public class PostalRecieveListController {
 		n.setReferenceNo(postalRecieveListBean.getReferenceNo());
 		n.setAddress(postalRecieveListBean.getAddress());
 		n.setNote(postalRecieveListBean.getNote());
-		}else {
-			 n.setAttachdocument(null);
-				n.setFromTitle(postalRecieveListBean.getFromTitle());
-				n.setToTitle(postalRecieveListBean.getToTitle());
-				n.setDate(postalRecieveListBean.getDate());
-				n.setReferenceNo(postalRecieveListBean.getReferenceNo());
-				n.setAddress(postalRecieveListBean.getAddress());
-				n.setNote(postalRecieveListBean.getNote());
-		}
         return postalRecieveListServiceImpl.addPostalRecieveList(n);
     }
 
@@ -85,6 +76,13 @@ public class PostalRecieveListController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deletePostalRecieveList(@PathVariable int id) {
 		return postalRecieveListServiceImpl.deletePostalRecieveList(id);
+		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public PostalRecieveList adPostalRecieveList(@RequestBody PostalRecieveList postalRecieveList) {
+		return postalRecieveListServiceImpl.adPostalRecieveList(postalRecieveList);
 		
 	}
 }

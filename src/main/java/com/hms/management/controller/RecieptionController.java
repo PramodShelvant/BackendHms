@@ -24,6 +24,8 @@ public class RecieptionController {
 	
 	@Autowired
 	public  RecieptionServiceImpl recieptionServiceImpl;
+	
+	
 	@CrossOrigin
 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
     public Recieption addRecieption(@RequestBody Recieption recieption) {

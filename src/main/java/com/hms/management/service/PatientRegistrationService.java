@@ -9,6 +9,7 @@ public interface PatientRegistrationService {
 	
 	public PatientRegistration addPatientRegistration(PatientRegistration patientRegistration);
  	public List<PatientRegistration> getAllPatientRegistration();
-	Object deletePatientRegistration(PatientRegistration patientRegistration);
+	public Object deletePatientRegistration(PatientRegistration patientRegistration);
+	public PatientRegistration adPatientRegistration(PatientRegistration patientRegistration);
 
 }

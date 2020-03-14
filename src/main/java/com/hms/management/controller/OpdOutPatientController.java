@@ -49,7 +49,7 @@ public class OpdOutPatientController {
 	
 	@CrossOrigin
 	@RequestMapping(value = "patient/{patientId}", method = RequestMethod.GET, produces = "application/json")
-    public List<OpdOutPatient> getEmployeeById(@PathVariable String patientId) throws RecordNotFoundException {
+    public Object getEmployeeById(@PathVariable String patientId) throws RecordNotFoundException {
 		//Map<String,Object> map=new HashMap<String,Object>();
 		//map.put("details of inpatient", opdOutPatientServiceImpl.getOutPatient(id));
 		return opdOutPatientServiceImpl.getByPatientId(patientId);
@@ -58,6 +58,21 @@ public class OpdOutPatientController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deleteOpdOutPatient(@PathVariable int id) {
 		return opdOutPatientServiceImpl.deleteOpdOutPatient(id);
+	}
+	
+	
+	@CrossOrigin
+	@RequestMapping(value = "docter/{docterId}", method = RequestMethod.GET, produces = "application/json")
+    public Object getByDocterId(@PathVariable String docterId) throws RecordNotFoundException {
+		//Map<String,Object> map=new HashMap<String,Object>();
+		//map.put("details of inpatient", opdOutPatientServiceImpl.getOutPatient(id));
+		return opdOutPatientServiceImpl.getByDocterId();
+    }
+	
+	@CrossOrigin
+	@RequestMapping(value = "/sd/{doctorId}",method = RequestMethod.GET,produces = "application/json")
+	public Object getBydocterId(@PathVariable String doctorId){
+		return opdOutPatientServiceImpl.getByDId(doctorId);
 		
 	}
 }

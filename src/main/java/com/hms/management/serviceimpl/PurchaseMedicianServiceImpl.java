@@ -42,4 +42,10 @@ public class PurchaseMedicianServiceImpl implements PurchaseMedicianService{
 		map.put("status", 1);
  		return map;
 	}
+
+	
+	@Override
+	public PurchaseMedician adPurchaseMedician(PurchaseMedician purchaseMedician) {
+ 		return purchaseMedicianRepository.save(purchaseMedician);
+	}
 }

@@ -20,12 +20,19 @@ public class OpdDiagnosisServiceImpl implements OpdDiagnosisService{
 	public OpdDiagnosis addOpdDiagnosis(OpdDiagnosis opdDiagnosis) {
  		return opdDiagnosisRepository.save(opdDiagnosis);
 	}
-	
+
 	@Override
-	public OpdDiagnosis getOpdDiagnosis(int id) throws RecordNotFoundException {
- 		return opdDiagnosisRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("No birthrecord record exist for given id"));
+	public Object getOpdDiagnosis(String opdId) throws RecordNotFoundException {
+		
+ 		return opdDiagnosisRepository.findByOpdId(opdId);
 	}
 
+	@Override
+	public OpdDiagnosis adOpdDiagnosis(OpdDiagnosis opdDiagnosis) {
+ 		return opdDiagnosisRepository.save(opdDiagnosis);
+	}
+	
+	 
 	
 	 
 }

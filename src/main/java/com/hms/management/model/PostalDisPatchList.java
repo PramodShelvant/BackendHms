@@ -20,11 +20,11 @@ public class PostalDisPatchList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String fromTitle;
-	private String referenceNo;
 	private String toTitle;
+	private String referenceNo;
 	private String address;
 	private String note;
+	private String fromTitle;
 	private String date;
 	private String attachdDocument;
 }

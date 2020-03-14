@@ -23,12 +23,7 @@ public class Bed {
 	private int bedTypeId;
 	private int bedGroupId;
 	private String isActive;
-	public static void main(String[] args) {
-		
-		Bed b=new Bed();
-	
-	}
-
+	 
 }
 
  

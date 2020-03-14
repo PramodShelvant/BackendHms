@@ -20,5 +20,10 @@ public class BankAccountDetailsServiceImpl implements BankAccountDetailsService{
 	public BankAccountDetails getBankAccountDetails(int id) throws RecordNotFoundException {
 		 return bankAccountDetailsRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("No appointment record exist for given id"));
 	}
+	
+	@Override
+	public BankAccountDetails addBankAccountDetails(BankAccountDetails bankAccountDetails) {
+ 		return bankAccountDetailsRepository.save(bankAccountDetails);
+	}
 
 }

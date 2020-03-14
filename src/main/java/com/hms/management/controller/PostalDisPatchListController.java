@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,18 +24,16 @@ import com.hms.management.serviceimpl.PostalDisPatchListServiceImpl;
 public class PostalDisPatchListController {
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public PostalDisPatchListServiceImpl postalDisPatchListServiceImpl;
-	
-	
+ 	
 	@CrossOrigin
 	@RequestMapping(value = "/", method = RequestMethod.POST)
     public PostalDisPatchList addInPatient(PostalDisPatchListBean postalDisPatchListBean) throws RecordNotFoundException {
 		PostalDisPatchList n=new PostalDisPatchList();
-		if(postalDisPatchListBean.getAttachdDocument()!=null) {
-	        byte[] bytes = null;
+ 	        byte[] bytes = null;
 			try {
 				bytes = postalDisPatchListBean.getAttachdDocument().getBytes();
 			} catch (IOException e) {
@@ -48,23 +47,14 @@ public class PostalDisPatchListController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        n.setAttachdDocument(UPLOADED_FOLDER + postalDisPatchListBean.getAttachdDocument().getOriginalFilename());
+	         n.setAttachdDocument(UPLOADED_FOLDER + postalDisPatchListBean.getAttachdDocument().getOriginalFilename());
 			 n.setAddress(postalDisPatchListBean.getAddress());
 			 n.setDate(postalDisPatchListBean.getDate());
 			 n.setFromTitle(postalDisPatchListBean.getFromTitle());
 			 n.setReferenceNo(postalDisPatchListBean.getReferenceNo());
 			 n.setNote(postalDisPatchListBean.getNote());
-			 n.setToTitle(postalDisPatchListBean.getToTitle());
-			}else {
-				 n.setAttachdDocument(null);
-				 n.setAddress(postalDisPatchListBean.getAddress());
-				 n.setDate(postalDisPatchListBean.getDate());
-				 n.setFromTitle(postalDisPatchListBean.getFromTitle());
-				 n.setReferenceNo(postalDisPatchListBean.getReferenceNo());
-				 n.setNote(postalDisPatchListBean.getNote());
-				 n.setToTitle(postalDisPatchListBean.getToTitle());
-				 }
-		return postalDisPatchListServiceImpl.addPostDisList(n);
+			 n.setToTitle(postalDisPatchListBean.getToTitle()); 
+		     return postalDisPatchListServiceImpl.addPostDisList(n);
   	       }
 	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
@@ -83,6 +73,14 @@ public class PostalDisPatchListController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deletePostalDisPatchList(@PathVariable int id) {
 		return postalDisPatchListServiceImpl.deletePostalDisPatchList(id);
+		
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public PostalDisPatchList addPostalDisPatchList(@RequestBody PostalDisPatchList postalDisPatchList) {
+		System.out.println("hello");
+		return postalDisPatchListServiceImpl.addpostalDisPatchListServiceImpl(postalDisPatchList);
 		
 	}
 }

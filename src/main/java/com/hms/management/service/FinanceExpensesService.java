@@ -11,6 +11,7 @@ public interface FinanceExpensesService {
 	public FinanceExpenses getFinanceExpenses(int id) throws RecordNotFoundException;
     public List<FinanceExpenses> getAllFinanceExpenses() throws RecordNotFoundException;
 	public Object deleteFinanceExpenses(int id);
-
+	public FinanceExpenses adFinanceExpenses(FinanceExpenses financeExpence);
+ 
 
 }

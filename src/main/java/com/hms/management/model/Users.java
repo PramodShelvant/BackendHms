@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "diagnosis")
+@Table(name = "opddiagnosis")
 
 public class OpdDiagnosis{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int  patientId;
+	private String  opdId;
 	private String reportType;
 	private String document;
 	private String description;

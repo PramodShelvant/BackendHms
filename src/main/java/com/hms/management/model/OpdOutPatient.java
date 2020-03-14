@@ -21,7 +21,9 @@ public class OpdOutPatient {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String patientId;
+	private String name;
 	private String opdId;
+	private String doctorId;
   	private String appointmentDate;
 	private String caseType;
 	private String casuality;
@@ -31,13 +33,23 @@ public class OpdOutPatient {
 	private String height;
 	private String weight;
  	private String tpa;
-	private String consDoctor;
+	private String doctorName;
 	private String standardCharge;
 	private String appliedCharge;
 	private String paymentMode;
  	private String note;
 	
-		
+ 	
+	/*
+	 * @OneToMany(targetEntity = Prescription.class,cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "mc_fk",referencedColumnName = "opdId",insertable = true,
+	 * updatable = true, nullable=false) private List<Prescription> prescription=new
+	 * ArrayList<Prescription>();
+	 */
+ 	
+ 	
+	 
 	
 }
 

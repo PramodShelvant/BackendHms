@@ -27,6 +27,7 @@ public class AppointmentController {
 	@Autowired
 	AppointmentServiceImpl appointmentServiceImpl;
 	
+	
 	@CrossOrigin
 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
     public Object addAppointment(@RequestBody Appointment appointment) throws RecordNotFoundException{
@@ -100,6 +101,25 @@ public class AppointmentController {
 	public Object addNewAppointment(@RequestBody Appointment appointment) {
 		System.out.println("sdfghjk");
  		return appointmentServiceImpl.addNewAppointment(appointment);
+		
+	}
+	@CrossOrigin
+	@RequestMapping(value = "onedayappointments/{date}", method = RequestMethod.GET, produces = "application/json")
+     public List<Appointment> getByDate(@PathVariable String date) throws RecordNotFoundException {
+		log.debug("appointment request:{}", date);
+		return appointmentServiceImpl.getByDate(date);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "d/{date}", method = RequestMethod.GET, produces = "application/json")
+     public Object findFirst10ByDate(@PathVariable String date) throws RecordNotFoundException {
+		log.debug("appointment request:{}", date);
+		return appointmentServiceImpl.getOneWeekAppointments(date);
+	}
+	@CrossOrigin
+	@RequestMapping(value = "gettt",method = RequestMethod.GET,produces = "application/json")
+	public List<Appointment> getAll(){
+		return appointmentServiceImpl.getAll();
 		
 	}
 }

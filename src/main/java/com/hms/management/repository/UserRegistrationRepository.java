@@ -1,5 +1,7 @@
 package com.hms.management.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hms.management.model.UserRegistration;
@@ -11,7 +13,7 @@ public interface UserRegistrationRepository extends JpaRepository<UserRegistrati
 	UserRegistration findByMobileNo(String mobileNo);
 
 	UserRegistration findByUserId(String patientId);
+	 List<UserRegistration> findByRole(String role);
 
-	//Object save(Appointment app);
-
+ 
 }

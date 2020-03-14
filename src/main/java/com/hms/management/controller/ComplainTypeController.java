@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class ComplainTypeController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public ComplainTypeServiceImpl complainTypeServiceImpl;
@@ -39,7 +40,6 @@ public class ComplainTypeController {
 		//Map<String,Object> map=new HashMap<String, Object>();
 		ComplainType n=new ComplainType();
 		System.out.println(n.toString());
-		if(complainTypeBean.getAttachedDocument()!=null) {
         byte[] bytes = null;
 		try {
 			bytes = complainTypeBean.getAttachedDocument().getBytes();
@@ -63,16 +63,6 @@ public class ComplainTypeController {
         n.setDescription(complainTypeBean.getDescription());
         n.setAssigned(complainTypeBean.getAssigned());
         n.setNote(complainTypeBean.getNote());
-		}else {
-			n.setAttachedDocument(null);
-		    n.setComplainBy(complainTypeBean.getComplainBy());
-	        n.setSource(complainTypeBean.getSource());
-	        n.setPhone(complainTypeBean.getPhone());
-	        n.setDate(complainTypeBean.getDate());
-	        n.setDescription(complainTypeBean.getDescription());
-	        n.setAssigned(complainTypeBean.getAssigned());
-	        n.setNote(complainTypeBean.getNote());
-	}
 		return complainTypeServiceImpl.addComplainType(n);
 	}
 
@@ -92,4 +82,12 @@ public class ComplainTypeController {
          return complainTypeServiceImpl.deleteComplainType(id);
   		
   	}	
+	
+	
+	@CrossOrigin
+	@RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public ComplainType addComplainType(@RequestBody ComplainType complainType) {
+		return complainTypeServiceImpl.adComplainType(complainType);
+		
+	}
 }

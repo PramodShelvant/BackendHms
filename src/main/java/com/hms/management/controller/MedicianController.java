@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class MedicianController {
 
 
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public MedicianServiceImpl medicianServiceImpl;
@@ -33,7 +34,6 @@ public class MedicianController {
     public Object addMedician(MedicianBean medicianBean) throws RecordNotFoundException {
 		//Map<String,Object> map=new HashMap<String, Object>();
 		Medician n=new Medician();
-		if(medicianBean.getMedicinePhoto()!=null) {
         byte[] bytes = null;
 		try {
 			bytes = medicianBean.getMedicinePhoto().getBytes();
@@ -61,21 +61,6 @@ public class MedicianController {
         n.setVatAc(medicianBean.getVatAc());
         n.setPacking(medicianBean.getPacking());
         n.setNote(medicianBean.getNote());
-		}else {
-			//n.setMedicinePhoto(null);
-	        n.setMedicineName(medicianBean.getMedicineName());
-            n.setMedicineCategory(medicianBean.getMedicineCategory());
-	        n.setMedicineCompany(medicianBean.getMedicineCompany());
-	        n.setMedicineComposition(medicianBean.getMedicineComposition());
-	        n.setMedicineGroup(medicianBean.getMedicineGroup());
-	        n.setUnit(medicianBean.getUnit());
-	        n.setMinLevel(medicianBean.getMinLevel());
-	        n.setReOrderLevel(medicianBean.getReOrderLevel());
-	        n.setVat(medicianBean.getVat());
-	        n.setVatAc(medicianBean.getVatAc());
-	        n.setPacking(medicianBean.getPacking());
-	        n.setNote(medicianBean.getNote());
-		}
  		return medicianServiceImpl.addMedician(n);
     }
 	@CrossOrigin
@@ -95,4 +80,12 @@ public class MedicianController {
 		return medicianServiceImpl.deleteMedician(id);
 		
 	}
+    
+    
+    @CrossOrigin
+    @RequestMapping(value ="iffileisnull",method = RequestMethod.POST,produces = "application/json")
+    public Medician adMedician(@RequestBody Medician medician) {
+		return medicianServiceImpl.adMedician(medician);
+    	
+    }
 }

@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "medicine_category")
 
 public class MedicineCategory {
+	
 	@Id
  	private String medicianCatId;
 	private String medicineCategory;

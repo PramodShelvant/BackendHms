@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  
 
  
-  @SpringBootApplication
+ @SpringBootApplication
  @EnableSwagger2
   public class MYApplication extends SpringBootServletInitializer {
 
@@ -21,6 +21,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 	  
 	public static void main(String[] args) {
 		SpringApplication.run(MYApplication.class, args);
+		
+		   
 	 
 	}
 	

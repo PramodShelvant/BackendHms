@@ -12,7 +12,7 @@ public class OpdDiagnosisBean{
 	
 	 
 	private int id;
-	private int  patientId;
+	private String  opdId;
 	private String reportType;
 	private String description;
 	private String reportDate;

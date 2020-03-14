@@ -55,4 +55,22 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		map.put("msg", "patient registration deleted succesfully");
  		return map;
 	}
+
+
+	@Override
+	public PatientRegistration adPatientRegistration(PatientRegistration patientRegistration) {
+		patientRegistration.setPatientId("P-"+DateTimeFormatter.ofPattern("yyyyMMddhhmmss").format(LocalDateTime.now()));
+		UserRegistration u=new UserRegistration();
+		u.setUserProfile(patientRegistration.getPatientPhoto());
+		u.setEmail(patientRegistration.getEmail());
+		u.setMobileNo(patientRegistration.getPhone());
+		u.setRole("patient");
+		u.setPassword("123456");
+		Date d=new Date();
+		u.setSignupDate(d);
+		u.setName(patientRegistration.getPatientName());
+ 		u.setUserId(patientRegistration.getPatientId());
+		userRegistrationRepository.save(u);
+ 	   return patientRegistrationRepository.save(patientRegistration);
+	}
 }

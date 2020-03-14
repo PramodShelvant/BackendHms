@@ -16,4 +16,6 @@ public interface MedicianService {
 
 	public Object deleteMedician(int id);
 
+	public Medician adMedician(Medician medician);
+
 }

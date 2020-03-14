@@ -18,6 +18,11 @@ public interface AppointmentService {
 	public Object update(Appointment app);
 	public Object deleteAppointment(int id);
 	public Object addNewAppointment(Appointment appointment);
+	public List<Appointment> getByDate(String date);
+	//public List<Appointment> findFirst10ByDate(String date);
+	public Object getOneWeekAppointments(String date);
+	public List<Appointment> getAll();
+
 
 
  }

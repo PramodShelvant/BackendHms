@@ -3,6 +3,9 @@ package com.hms.management.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,14 +27,25 @@ public class BloodDonorController {
 	public BloodDonorServiceImpl bloodDonorServiceImpl;
 	
 	
-	@CrossOrigin
-	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
-    public BloodDonor addBloodDonor(@RequestBody BloodDonor bloodDonor) throws RecordNotFoundException{
-		//Map<String, Object> map=new HashMap<String, Object>();
-		//BloodDonor updated = bloodDonorServiceImpl.addBloodDonor(bloodDonor);
-      // map.put("data saved", new ResponseEntity<BloodDonor>(updated, new HttpHeaders(), HttpStatus.OK));
-       return bloodDonorServiceImpl.addBloodDonor(bloodDonor);	
-       }
+	/*
+	 * @CrossOrigin
+	 * 
+	 * @RequestMapping(value = "/", method = RequestMethod.POST, produces =
+	 * "application/json") public BloodDonor addBloodDonor(@RequestBody BloodDonor
+	 * bloodDonor) throws RecordNotFoundException{ //Map<String, Object> map=new
+	 * HashMap<String, Object>(); //BloodDonor updated =
+	 * bloodDonorServiceImpl.addBloodDonor(bloodDonor); // map.put("data saved", new
+	 * ResponseEntity<BloodDonor>(updated, new HttpHeaders(), HttpStatus.OK));
+	 * return bloodDonorServiceImpl.addBloodDonor(bloodDonor); }
+	 */
+	
+	 @RequestMapping(value = "/", method = RequestMethod.POST, produces ="application/json")
+    public ResponseEntity<BloodDonor> createOrUpdateEmployee(BloodDonor bloodDonor)
+            throws RecordNotFoundException {
+    	BloodDonor updated = bloodDonorServiceImpl.addBloodDonor(bloodDonor);
+return new ResponseEntity<BloodDonor>(updated, new HttpHeaders(), HttpStatus.OK);
+}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public BloodDonor getBloodDonorById(@PathVariable int id) throws RecordNotFoundException {
  		return bloodDonorServiceImpl.getBloodDonor(id);

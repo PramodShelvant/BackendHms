@@ -40,4 +40,9 @@ public class MedicianServiceImpl implements MedicianService{
 		medicianRepository.deleteById(id);
  		return map;
 	}
+	
+	@Override
+	public Medician adMedician(Medician medician) {
+ 		return medicianRepository.save(medician);
+	}
 }

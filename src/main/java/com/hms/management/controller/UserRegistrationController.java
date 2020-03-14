@@ -26,7 +26,7 @@ public class UserRegistrationController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	
 	@Autowired
@@ -38,8 +38,7 @@ public class UserRegistrationController {
     public Map<String, Object> registration(UserRegistrationBean userRegistrationBean){
 		Map<String, Object> response=new HashMap<String, Object>();
 		UserRegistration n=new UserRegistration();
-		if(userRegistrationBean.getUserProfile()!=null) {
-	        byte[] bytes = null;
+ 	        byte[] bytes = null;
 			try {
 				bytes = userRegistrationBean.getUserProfile().getBytes();
 			} catch (IOException e) {
@@ -60,21 +59,9 @@ public class UserRegistrationController {
 			 n.setRole(userRegistrationBean.getRole());
 			 n.setPassword(userRegistrationBean.getPassword());
 			 n.setSignupDate(userRegistrationBean.getSignupDate());
-		 	// response.put("msg",userRegistrationServiceImpl.registration(n));
-
-			}else {
-				 n.setEmail(userRegistrationBean.getEmail());
-				 n.setMobileNo(userRegistrationBean.getMobileNo());
-				 n.setName(userRegistrationBean.getName());
-				 n.setRole(userRegistrationBean.getRole());
-				 n.setPassword(userRegistrationBean.getPassword());
-				 n.setSignupDate(userRegistrationBean.getSignupDate());
-			 	 response.put("msg",userRegistrationServiceImpl.registration(n));
-
-				 }
- 
- 		response.put("msg",userRegistrationServiceImpl.registration(n));
- 		return response;
+		 	// response.put("msg",userRegistrationServiceImpl.registration(n)); 
+ 		     response.put("msg",userRegistrationServiceImpl.registration(n));
+ 		     return response;
 	}
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="login", method = RequestMethod.POST, produces = "application/json")
@@ -90,6 +77,13 @@ public class UserRegistrationController {
  		//response.put("msg",userRegistrationServiceImpl.userLogIn(userRegistration));
  		return userRegistrationServiceImpl.fetchAllUser();
 	}
+	@CrossOrigin
+	@RequestMapping(value="/fetchalluser/{role}", method = RequestMethod.GET, produces = "application/json")
+    public Object getUserByRole(@PathVariable String role){
+		//Map<String, Object> response=new HashMap<String, Object>();
+ 		//response.put("msg",userRegistrationServiceImpl.userLogIn(userRegistration));
+ 		return userRegistrationServiceImpl.fetchByRole(role);
+	}
 	
 	@CrossOrigin
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
@@ -98,6 +92,14 @@ public class UserRegistrationController {
 		
 	}
 	 
+	
+	
+	@CrossOrigin
+	@RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public UserRegistration adUserRegistration(@RequestBody UserRegistration userRegitration) {
+		 return userRegistrationServiceImpl.adUserRegistration(userRegitration);
+		
+	}
 	/*
 	 * @RequestMapping(value="/getallregistration", method = RequestMethod.GET,
 	 * produces = "application/json") public ResponseEntity<List<UserRegistration>>

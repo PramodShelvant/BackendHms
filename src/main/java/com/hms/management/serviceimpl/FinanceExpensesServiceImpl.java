@@ -43,4 +43,11 @@ public class FinanceExpensesServiceImpl implements FinanceExpensesService{
 		map.put("status", 1);
  		return map;
 	}
+
+	@Override
+	public FinanceExpenses adFinanceExpenses(FinanceExpenses financeExpence) {
+ 		return financeExpensesRepository.save(financeExpence);
+	}
+
+	 
 }

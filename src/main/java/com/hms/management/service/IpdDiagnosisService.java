@@ -7,6 +7,7 @@ public interface IpdDiagnosisService {
 
 	public IpdDiagnosis addIpdDiagnosis(IpdDiagnosis ipdDiagnosis);
 	public IpdDiagnosis getIpdDiagnosis(int id) throws RecordNotFoundException;
+	public IpdDiagnosis adIpdDiagnosis(IpdDiagnosis ipdDiagnosis);
 	
 	
 }

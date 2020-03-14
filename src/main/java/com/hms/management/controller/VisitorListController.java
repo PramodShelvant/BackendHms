@@ -12,6 +12,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class VisitorListController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public VisitorListServiceImpl visitorListServiceImpl;
@@ -42,8 +43,6 @@ public class VisitorListController {
 		System.out.println(visitorListBean.getIdCard()+"-<----id cart----.number of persons "+visitorListBean.getNumberOfPersons());
 		VisitorList n=new VisitorList();
 		System.out.println(n.getIdCard()+"-<----id cart----.number of persons "+n.getNumberOfPersons());
-
-		if(visitorListBean.getAttachedDocument()!=null) {
         byte[] bytes = null;
 		try {
  				bytes = visitorListBean.getAttachedDocument().getBytes();
@@ -71,23 +70,6 @@ public class VisitorListController {
         n.setOutTime(visitorListBean.getOutTime());
         n.setAction(visitorListBean.getAction());
         n.setNote(visitorListBean.getNote());
-		}else {
-        	n.setAttachedDocument(null);
-    	    n.setPurpose(visitorListBean.getPurpose());
-            n.setName(visitorListBean.getName());
-            n.setPhone(visitorListBean.getPhone());
-            Date d=new Date();
-            n.setDate(d);
-            n.setIdCard(visitorListBean.getIdCard());
-            n.setNumberOfPersons(visitorListBean.getNumberOfPersons());
-           
-            n.setInTime(visitorListBean.getInTime());
-            n.setOutTime(visitorListBean.getOutTime());
-            n.setAction(visitorListBean.getAction());
-            n.setNote(visitorListBean.getNote());
-        }
-		System.out.println(n.getIdCard());
-		
 		return visitorListServiceImpl.addVisitors(n);
 	}
     
@@ -109,4 +91,10 @@ public class VisitorListController {
 		return visitorListServiceImpl.deleteVisitorList(id);
 		
 	}
+    
+    @RequestMapping(value = "/iffileisnull",method = RequestMethod.POST,produces = "application/json")
+    public VisitorList adVisitor(@RequestBody VisitorList visitorList) {
+		return visitorListServiceImpl.adVisitorList(visitorList);
+    	
+    }
 }

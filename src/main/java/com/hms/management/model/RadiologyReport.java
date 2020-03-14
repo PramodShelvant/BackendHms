@@ -1,5 +1,7 @@
 package com.hms.management.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +31,6 @@ public class RadiologyReport {
 	private String description;
 	private String radiologyReport;
 	private float applyCharge;
-	private String createdAt;
-	private String updatedAt;
+	private Date createdAt;
+	private Date updatedAt;
 }

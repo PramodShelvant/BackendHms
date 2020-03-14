@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class OpdDiagnosisController {
 
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public OpdDiagnosisServiceImpl opdDiagnosisServiceImpl; 
@@ -33,8 +34,7 @@ public class OpdDiagnosisController {
 		OpdDiagnosis n=new OpdDiagnosis();
 		System.out.println(n);
 		System.out.println(opdDiagnosisBean);
-		if(opdDiagnosisBean.getDocument()!=null) {
-	        byte[] bytes = null;
+ 	        byte[] bytes = null;
 			try {
 				bytes = opdDiagnosisBean.getDocument().getBytes();
 			} catch (IOException e) {
@@ -50,24 +50,21 @@ public class OpdDiagnosisController {
 			}
 	        n.setDocument(UPLOADED_FOLDER + opdDiagnosisBean.getDocument().getOriginalFilename());
  			 n.setDescription(opdDiagnosisBean.getDescription());
-			// n.setId(opdDiagnosisBean.getId());
-			 n.setPatientId(opdDiagnosisBean.getPatientId());
+			 n.setOpdId(opdDiagnosisBean.getOpdId());
+			// n.setOpdId(opdDiagnosisBean.getPatientId());
 			 n.setReportDate(opdDiagnosisBean.getReportDate());
 			 n.setReportType(opdDiagnosisBean.getReportType());
-			}else {
-				 n.setDocument(null);
-				 n.setDescription(opdDiagnosisBean.getDescription());
-					// n.setId(opdDiagnosisBean.getId());
-					 n.setPatientId(opdDiagnosisBean.getPatientId());
-					 n.setReportDate(opdDiagnosisBean.getReportDate());
-					 n.setReportType(opdDiagnosisBean.getReportType());
-				 }
-		return opdDiagnosisServiceImpl.addOpdDiagnosis(n);
+	         return opdDiagnosisServiceImpl.addOpdDiagnosis(n);
   	       }
 	@CrossOrigin
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public OpdDiagnosis getOpdDiagnosis(@PathVariable int id) throws RecordNotFoundException {
-		return opdDiagnosisServiceImpl.getOpdDiagnosis(id);
+	@RequestMapping(value = "/{opdId}", method = RequestMethod.GET, produces = "application/json")
+    public Object getOpdDiagnosis(@PathVariable String opdId) throws RecordNotFoundException {
+		return opdDiagnosisServiceImpl.getOpdDiagnosis(opdId);
 	}
 	
+	@RequestMapping(value = "iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public OpdDiagnosis adOpdDiagnosis(@RequestBody OpdDiagnosis opdDiagnosis) {
+		return opdDiagnosisServiceImpl.adOpdDiagnosis(opdDiagnosis);
+		
+	}
 }

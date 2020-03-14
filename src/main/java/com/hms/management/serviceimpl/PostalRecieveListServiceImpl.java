@@ -47,4 +47,10 @@ public class PostalRecieveListServiceImpl implements PostalRecieveListService{
 		map.put("status", 1);
  		return map;
 	}
+
+	
+	@Override
+	public PostalRecieveList adPostalRecieveList(PostalRecieveList postalRecieveList) {
+ 		return postalRecieveListRepository.save(postalRecieveList);
+	}
 }

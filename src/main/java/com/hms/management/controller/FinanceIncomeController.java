@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class FinanceIncomeController {
 
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//SPRING//";
+	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
 
 	@Autowired
 	public FinanceIncomeServiceImpl financeIncomeServiceImpl;
@@ -81,6 +82,13 @@ public class FinanceIncomeController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deleteFinanceIncome(@PathVariable int id) {
 		return financeIncomeServiceImpl.deleteFinanceIncome(id);
+		
+	}
+	
+	
+	@RequestMapping(value = "iffileisnull",method = RequestMethod.POST,produces = "application/json")
+	public FinanceIncome adFinanceIncome(@RequestBody FinanceIncome financeIncome) {
+		return financeIncomeServiceImpl.adfinanceIncome(financeIncome);
 		
 	}
 }

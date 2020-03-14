@@ -24,4 +24,10 @@ public class IpdDiagnosisServiceImpl implements IpdDiagnosisService{
 	public IpdDiagnosis getIpdDiagnosis(int id) throws RecordNotFoundException {
  		return ipdDiagnosisServiceRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("No birthrecord record exist for given id"));
 	}
+
+	
+	@Override
+	public IpdDiagnosis adIpdDiagnosis(IpdDiagnosis ipdDiagnosis) {
+ 		return ipdDiagnosisServiceRepository.save(ipdDiagnosis);
+	}
 }

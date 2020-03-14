@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hms.management.model.IpdBilling;
 
-public interface IpdBillingRepo extends JpaRepository<IpdBilling, Integer>{
+public interface IpdBillingRepository extends JpaRepository<IpdBilling, Integer>{
+
+	public IpdBilling findByPatientId(String patientId);
 
 }

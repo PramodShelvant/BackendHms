@@ -19,7 +19,8 @@ public class Doctor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
+	private String doctorId;
 	private String phoneNo;
 	private String firstName;
 	private String lastName;

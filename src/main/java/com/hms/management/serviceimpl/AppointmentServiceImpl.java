@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -41,12 +43,12 @@ public class AppointmentServiceImpl implements AppointmentService{
  		Date d=new Date();
  		UserRegistration u=new UserRegistration();
  		u.setEmail(appointment.getEmail());
- 		
  		u.setMobileNo(appointment.getMobileNumber());
  		u.setName(appointment.getPatientName());
  		//u.setPassword(appointment.get);
+ 		u.setGender(appointment.getGender());
  		u.setRole("patient");
- 		u.setUserId("USER-"+DateTimeFormatter.ofPattern("yyyyMMddhhmmss").format(LocalDateTime.now()));
+ 		u.setUserId("PAT-"+DateTimeFormatter.ofPattern("yyyyMMddhhmmss").format(LocalDateTime.now()));
  		u.setPassword("12345");
  		//u.setPassword(PasswordGen.generateRandomPassword(7));
  		appointment.setAptId("APTID-"+DateTimeFormatter.ofPattern("yyyyMMddhhmmss").format(LocalDateTime.now()));
@@ -132,8 +134,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 			for(Appointment pp: app) {
             if(pp.getAppointmentStatus()!=null){
                 pp.setAppointmentStatus(appointment.getAppointmentStatus());}
-            if(pp.getAppointmentNo()!=null) {
-            	pp.setAppointmentNo(appointment.getAppointmentNo());}
+            
             if(pp.getAptId()!=null) {
             	pp.setAptId(appointment.getAptId());}
             if(pp.getCreatedAt()!=null) {
@@ -192,8 +193,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 			//for(Appointment pp: ppp) {
             if(appointment.getAppointmentStatus()!=null){
                 pp.setAppointmentStatus(appointment.getAppointmentStatus());}
-            if(appointment.getAppointmentNo()!=null) {
-            	pp.setAppointmentNo(appointment.getAppointmentNo());}
+            
             if(appointment.getAptId()!=null) {
             	pp.setAptId(appointment.getAptId());}
             if(appointment.getCreatedAt()!=null) {
@@ -233,5 +233,70 @@ public class AppointmentServiceImpl implements AppointmentService{
          		return map;
             }
         }
+    
+    @Override
+    public List<Appointment> getByDate(String date){
+    	//LocalDate dateBefore30Days = LocalDate.now().minusDays(30);
+        //List<Appointment> persons =  appointmentRepo.findByDateGreaterThan(dateBefore30Days);
+    	 
+		return appointmentRepo.findByDate(date);
+        }
+    @Override
+	public Object getOneWeekAppointments(String date) {
+		//Pageable topTen = new PageRequest(0, 10, Direction.ASC, "date"); 
+		//List<Appointment> result = appointmentRepo.findByDate("date", topTen);
+		List<Map<String, Object>> al=new ArrayList<>();
+		Map<String, Object> map=new HashMap<>();
+		Page<Appointment> page = appointmentRepo.findAll(
+		PageRequest.of(0, 7, Sort.by(Sort.Direction.DESC, "date")));
+		if(page.getSize()!=0) {
+			for(Appointment a:page) {
+				 
+				map.put("date", a.getDate());
+				map.put("appointmentStatus", a.getAppointmentStatus());
+				map.put("aptId", a.getAptId());
+				map.put("email", a.getEmail());
+				map.put("gender", a.getGender());
+				al.add(map);
+
+			}
+		}
+ 		//return appointmentRepo.findAll()
+		return al;
+	}
+
+	@Override
+	public List<Appointment> getAll() {
+ 		return appointmentRepo.getAll();
+	}
+
+	//@Override
+	//public List<Appointment> findFirst10ByDate(String date) {
+ 		//return appointmentRepo.findTop3ByOrderByDateAsc(date);
+	//}
+    	
     }
+	/*
+	 * public List<Appointment> getBetweenDates(String date, String date1){
+	 * DateTimeFormatter formatter =
+	 * DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); LocalDateTime start =
+	 * LocalDateTime.parse(date, formatter); LocalDateTime end =
+	 * LocalDateTime.parse(date, formatter); Calendar calendar =
+	 * Calendar.getInstance(); int offset = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+	 * calendar.add(Calendar.DATE, -offset); for(int i = 0; i < 7; i++){
+	 * System.out.println(calendar.getTime()); calendar.add(Calendar.DATE, 1);
+	 * 
+	 * return null;
+	 * 
+	 * public static List<LocalDate> datesOfWeekDate(LocalDate date) {
+    LocalDate monday = date
+            .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+
+    return IntStream.range(0, 7).mapToObj(monday::plusDays).collect(toList());
+}
+
+	 * }
+	 */
+		 
+
 		 

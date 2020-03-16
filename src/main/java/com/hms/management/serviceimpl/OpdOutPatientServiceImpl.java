@@ -124,6 +124,12 @@ map.put("userProfile",userRepo.findByRole("patient"));
  		return map;
 	}
 	
+	public Object getPatient() {
+		//Map<String, Object> map=new HashMap<>();
+		
+		//map.put("status", 1);
+ 		return opdOutPatientRepository.fetchOpdPatient();
+	}
 	@Override
 	public Object getByDId(String doctorId) {
 		List<Map<String, Object>> response=new ArrayList<>();

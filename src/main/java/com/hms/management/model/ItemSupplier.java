@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "item_supplier")
-
 public class ItemSupplier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -5,19 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
- 
+
 
  
  @SpringBootApplication
- @EnableSwagger2
-  public class MYApplication extends SpringBootServletInitializer {
+  public class MYApplication{
 
-	  
-	  @Override
-	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		  return application.sources(MYApplication.class);
-	  }
+//	  
+//	  @Override
+//	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//		  return application.sources(MYApplication.class);
+//	  }
 	  
 	public static void main(String[] args) {
 		SpringApplication.run(MYApplication.class, args);

@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "medicine_category")
-
 public class MedicineCategory {
 	
 	@Id

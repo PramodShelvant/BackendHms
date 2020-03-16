@@ -19,8 +19,6 @@ import com.hms.management.exception.RecordNotFoundException;
 import com.hms.management.model.AmbulanceCall;
 import com.hms.management.serviceimpl.AmbulanceCallServiceImpl;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
 @CrossOrigin
 @RestController
 @RequestMapping("/ambulance")

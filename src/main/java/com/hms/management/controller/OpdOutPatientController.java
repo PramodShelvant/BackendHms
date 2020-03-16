@@ -38,6 +38,13 @@ public class OpdOutPatientController {
 		//map.put("details of inpatient", opdOutPatientServiceImpl.getOutPatient(id));
 		return opdOutPatientServiceImpl.getOpdOutPatientById(id);
     }
+	@CrossOrigin
+	@RequestMapping(value = "patient1/{id}", method = RequestMethod.GET, produces = "application/json")
+    public Object getEmployeeById() throws RecordNotFoundException {
+		//Map<String,Object> map=new HashMap<String,Object>();
+		//map.put("details of inpatient", opdOutPatientServiceImpl.getOutPatient(id));
+		return opdOutPatientServiceImpl.getPatient();
+    }
 	
 	@CrossOrigin
 	@RequestMapping(value = {"","receptionist/{id}","admin/{id}"}, method = RequestMethod.GET, produces = "application/json")

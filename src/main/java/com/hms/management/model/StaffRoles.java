@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "staff_roles")
-
 public class StaffRoles {
 	@Id
 	private int id;

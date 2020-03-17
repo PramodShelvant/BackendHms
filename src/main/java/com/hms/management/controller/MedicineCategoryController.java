@@ -12,6 +12,7 @@ import com.hms.management.model.MedicineCategory;
 import com.hms.management.serviceimpl.MedicineCategoryServiceImpl;
 
 @RestController
+@CrossOrigin
 public class MedicineCategoryController {
 
 	
@@ -23,7 +24,7 @@ public class MedicineCategoryController {
       public MedicineCategory addMedicineCategory(@RequestBody MedicineCategory medicineCategory) {
 		return medicineCategoryServiceImpl.addMedicineCategory(medicineCategory);
 	}
-    @CrossOrigin
+    
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public Object deleteMedicineCategory(@PathVariable int id) {
 		return medicineCategoryServiceImpl.deleteMedicineCategory(id);

@@ -15,14 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "pharmacy_bill_basic")
-
 public class PharmacyBillBasic {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String billNo;
 	private String date;
-	private int patientId;
+	private String patientId;
 	private String customerName;
 	private String customerType;
 	private String doctorName;

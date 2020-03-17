@@ -32,7 +32,6 @@ public class ItemSupplierController {
 	}
 	@GetMapping("get")
 	public <T> T getSupplier(){
-		//System.out.println(itemsupplier);
 		return  (T) itemRepo.findAll();
 	}
 	@DeleteMapping("delete/{id}")

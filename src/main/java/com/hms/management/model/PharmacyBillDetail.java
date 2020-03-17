@@ -15,10 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "pharmacy_bill_detail")
-
 public class PharmacyBillDetail {
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

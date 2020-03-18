@@ -24,4 +24,5 @@ public class MedicineCategory {
 	private String salePrice;
 	private float charges;
 	 
+	
 }

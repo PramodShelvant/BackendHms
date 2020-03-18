@@ -14,20 +14,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "medicine_batch_details")
+@Table
 public class MedicineBatchDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int pharmacyId;
+	private int medicineCategoryId;
+	private String batchamt;
 	private String inwardDate;
 	private String expiryDate;
-	private String batchNo;
-	private String packingQty;
-	private String purchaseRatePacking;
+	private String batchNum;
+	private String packingqty;
+	private String purchasePrice;
 	private String quantity;
 	private String mrp;
-	private String saleRate;
+	private String saleprice;
 	private String amount;
 	private String availableQuantity;
 	private String createdAt;

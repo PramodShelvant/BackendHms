@@ -41,6 +41,15 @@ public class MedicineBatchDetailsController {
 				return (T) medicineBatchDetailsRepo.findAll();
 			}
 		
+		@GetMapping("/getbypharmacyId/{id}")
+		public <T> T get(@PathVariable int id) {
+				return (T) medicineBatchDetailsRepo.fetchByPharmacyId(id);
+			}
+		@GetMapping("/getbybathnum/{id}")
+		public <T> T getById(@PathVariable int id) {
+			//medicineBatchDetailsRepo.findById(id);
+				return (T) medicineBatchDetailsRepo.findById(id);
+			}
 			@PostMapping("/delete/{id}")
 			public <T> T deleteById(@PathVariable int id) {
 				Map<String,Object> map= new HashMap<>();

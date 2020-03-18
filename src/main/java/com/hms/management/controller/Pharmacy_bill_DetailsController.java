@@ -8,24 +8,30 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hms.management.model.MedicineBatchDetails;
-import com.hms.management.model.PharmacyBillDetail;
-import com.hms.management.repository.PharmacyBillDetailRepo;
+import com.hms.management.model.Pharmacy_bill_Details;
+import com.hms.management.repository.Pharmacy_bill_DetailsRepo;
+import com.hms.management.serviceimpl.UploadFile;
+
 
 @CrossOrigin
 @RestController
-@RequestMapping("pharmacyBillDetails")
-public class PharmacyBillDetailsController {
+@RequestMapping("purchaseBillDetais")
+public class Pharmacy_bill_DetailsController {
+	
 	@Autowired
-	PharmacyBillDetailRepo PharmacyBillDetailsRepo;
+	Pharmacy_bill_DetailsRepo Pharmacy_bill_DetailsRepo;
+	
+	@Autowired
+	UploadFile uploadfile;
 	
 	@PostMapping("/add")
-	public <T> T save(PharmacyBillDetail t) {
+	public <T> T save(@RequestBody Pharmacy_bill_Details t) {
 		Map<String,Object> map= new HashMap<>();
-		PharmacyBillDetail c= PharmacyBillDetailsRepo.save(t);
+		Pharmacy_bill_Details c= Pharmacy_bill_DetailsRepo.save(t);
 		if(c.getId()==t.getId()) {
 			map.put("msg", "successfully updated");
 			map.put("status","1");
@@ -38,15 +44,19 @@ public class PharmacyBillDetailsController {
 			return (T) map;
 		}
 	}
+	
+	
 		@GetMapping("/get")
 		public <T> T get() {
-				return (T) PharmacyBillDetailsRepo.findAll();
+				return (T) Pharmacy_bill_DetailsRepo.findAll();
 			}
+		
+		
 		
 			@PostMapping("/delete/{id}")
 			public <T> T deleteById(@PathVariable int id) {
 				Map<String,Object> map= new HashMap<>();
-			 PharmacyBillDetailsRepo.deleteById(id);;
+			 Pharmacy_bill_DetailsRepo.deleteById(id);;
 					map.put("msg", "successfully deleted");
 					map.put("status","1");
 					return (T) map;

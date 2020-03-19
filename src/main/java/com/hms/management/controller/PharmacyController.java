@@ -79,7 +79,7 @@ public class PharmacyController {
 	}
 		@GetMapping("/get")
 		public <T> T get() {
-				return (T) PharmacyRepo.findAll();
+				return (T) PharmacyRepo.fetchPharmacy();
 			}
 		
 		@GetMapping("/getbycategoryId/{id}")

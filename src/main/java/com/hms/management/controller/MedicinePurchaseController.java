@@ -85,7 +85,7 @@ public class MedicinePurchaseController {
 	}
 		@GetMapping("/get")
 		public <T> T get() {
-				return (T) purchaseMedicineModalRepo.findAll();
+				return (T) purchaseMedicineModalRepo.fetchAll();
 			}
 		
 		

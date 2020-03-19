@@ -26,11 +26,11 @@ public class Pharmacy_Bill_Basic {
  	@Id
  	@GeneratedValue(strategy = GenerationType.AUTO)
  	private int id;
-  	private String billNo;
 	private String patientId;
+	private String patientName;
 	private String date;
 	private String doctor;
-	private String hospitalDoctor;
+	private String doctorName;
 	private String note;
 	private float discount;
 	private float tax;

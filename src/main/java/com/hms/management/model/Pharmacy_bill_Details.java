@@ -21,7 +21,9 @@ public class Pharmacy_bill_Details {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
  	private int medicineCategoryId;
+ 	private String medicineCategory;
 	private int pharmacyId;
+	private String medicineName;
 	private String batchNum;
 	private String expiryDate;
 	private float quantity;

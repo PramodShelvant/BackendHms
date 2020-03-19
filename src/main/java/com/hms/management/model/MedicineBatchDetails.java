@@ -20,18 +20,20 @@ public class MedicineBatchDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int pharmacyId;
+	private String medicineName;
 	private int medicineCategoryId;
+	private String medicineCategory;
 	private String batchamt;
 	private String inwardDate;
 	private String expiryDate;
 	private String batchNum;
 	private String packingqty;
 	private String purchasePrice;
-	private String quantity;
-	private String mrp;
-	private String saleprice;
-	private String amount;
-	private String availableQuantity;
+	private float quantity;
+	private float mrp;
+	private float saleprice;
+	private float amount;
+	private float availableQuantity;
 	private String createdAt;
 	private String updatedAt;
 }

@@ -40,10 +40,18 @@ public class MedicineBatchDetailsController {
 		public <T> T get() {
 				return (T) medicineBatchDetailsRepo.findAll();
 			}
+		@GetMapping("/getexpiry")
+		public <T> T get1() {
+				return (T) medicineBatchDetailsRepo.fetchAllExpiry();
+			}
 		
 		@GetMapping("/getbypharmacyId/{id}")
 		public <T> T get(@PathVariable int id) {
 				return (T) medicineBatchDetailsRepo.fetchByPharmacyId(id);
+			}
+		@GetMapping("/fetchbypharmacyId/{id}")
+		public <T> T fetch(@PathVariable int id) {
+				return (T) medicineBatchDetailsRepo.findByPharmacyId(id);
 			}
 		@GetMapping("/getbybathnum/{id}")
 		public <T> T getById(@PathVariable int id) {

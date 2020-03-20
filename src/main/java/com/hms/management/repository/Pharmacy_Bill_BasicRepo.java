@@ -13,5 +13,8 @@ public interface Pharmacy_Bill_BasicRepo extends JpaRepository<Pharmacy_Bill_Bas
 			+ "from Pharmacy_Bill_Basic b inner join UserRegistration d on d.userId=b.doctor "
 			+ "inner join UserRegistration u on u.userId=b.patientId")
 	List<?> fetchBill();
+	@Query("select SUBSTRING(p.date,1,10) from Pharmacy_Bill_Basic p where "
+			+ "SUBSTRING(p.date,1,10)=CURRENT_DATE")
+	List<?> fetchBill(String  date);
 
 }

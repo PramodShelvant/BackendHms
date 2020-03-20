@@ -11,5 +11,9 @@ public interface PurchaseMedicineModalRepo extends JpaRepository<PurchaseMedicin
 	@Query("select new Map(p as purchase,i as supplier) from PurchaseMedicineModal p inner join ItemSupplier i on "
 			+ "p.supplierId=i.id")
 	List<?> fetchAll();
+	
+//	@Query(value = "select p  from PurchaseMedicineModal p inner join ItemSupplier i on "
+//			+ "p.supplierId=i.id WHERE SUBSTRING(p.medicine.expiryDate,1,10)<CURRENT_DATE",nativeQuery = true)
+//	List<?> fetchAllExpiry();
 
 }

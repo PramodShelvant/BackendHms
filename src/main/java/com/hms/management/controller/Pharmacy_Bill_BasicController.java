@@ -41,7 +41,10 @@ public class Pharmacy_Bill_BasicController {
 		public <T> T get() {
 				return (T) Pharmacy_Bill_BasicRepo.findAll();
 			}
-		
+		@GetMapping("/get1")
+		public <T> T get1() {
+				return (T) Pharmacy_Bill_BasicRepo.fetchBill("");
+			}
 			@PostMapping("/delete/{id}")
 			public <T> T deleteById(@PathVariable int id) {
 				Map<String,Object> map= new HashMap<>();

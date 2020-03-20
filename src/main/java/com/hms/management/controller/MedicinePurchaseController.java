@@ -90,6 +90,7 @@ public class MedicinePurchaseController {
 		
 		
 		
+		
 			@PostMapping("/delete/{id}")
 			public <T> T deleteById(@PathVariable int id) {
 				Map<String,Object> map= new HashMap<>();

@@ -41,6 +41,12 @@ public class MedicineBadStockController {
 		public <T> T get() {
 				return (T) MedicineBadStockRepo.findAll();
 			}
+
+		@GetMapping("/getByPharmacyId/{id}")
+		public <T> T fetchByPharmacyid(int id) {
+				return (T) MedicineBadStockRepo.findByPharmacyId(id);
+			}
+
 		
 			@PostMapping("/delete/{id}")
 			public <T> T deleteById(@PathVariable int id) {

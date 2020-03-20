@@ -29,4 +29,5 @@ public class Pharmacy_bill_Details {
 	private float quantity;
 	private float saleprice;
 	private float amount;
+	private int medicineBatch;
 }

@@ -22,7 +22,7 @@ public class IncomeHead {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String incomeCategory;
+	private String incomeHead;
 	private String description;
 	private String isActive;
 	private String isDeleted;

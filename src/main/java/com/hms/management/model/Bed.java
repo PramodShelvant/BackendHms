@@ -22,7 +22,7 @@ public class Bed {
 	private String name;
 	private int bedTypeId;
 	private int bedGroupId;
-	private String isActive;
+	private int isActive;
 	 
 }
 

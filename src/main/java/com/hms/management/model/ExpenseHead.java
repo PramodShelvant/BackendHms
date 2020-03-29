@@ -17,12 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "expense_head")
-
 public class ExpenseHead {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String expCategory;
+	private String expenseHead;
 	private String description;
 	private String isActive;
 	private String isDeleted;

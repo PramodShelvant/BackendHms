@@ -15,14 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "complaint_type")
-
 public class ComplaintType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String complaintType;
+	private String complainType;
 	private String description;
-	private String createdAt;
+
 
 
 }

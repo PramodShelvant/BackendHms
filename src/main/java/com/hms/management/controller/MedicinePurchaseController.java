@@ -26,7 +26,7 @@ import com.hms.management.serviceimpl.UploadFile;
 
 @CrossOrigin
 @RestController
-@RequestMapping("purchaseMedicine")
+@RequestMapping("/purchaseMedicine")
 public class MedicinePurchaseController {
 	
 	@Autowired

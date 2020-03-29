@@ -1,6 +1,7 @@
 package com.hms.management.controller;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hms.management.model.Pharmacy_Bill_Basic;
 import com.hms.management.repository.Pharmacy_Bill_BasicRepo;
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("pharmacyBillBasic")
 public class Pharmacy_Bill_BasicController {
+	
 	@Autowired
 	Pharmacy_Bill_BasicRepo Pharmacy_Bill_BasicRepo;
 	

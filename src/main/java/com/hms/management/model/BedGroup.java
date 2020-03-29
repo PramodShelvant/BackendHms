@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bed_group")
-
 public class BedGroup 
 {
 	@Id
@@ -23,7 +22,7 @@ public class BedGroup
 	private int id;
 	private String name;
 	private String description;
-	private String floor;
+	private int floorId;
 	private int isActive;
 	
 

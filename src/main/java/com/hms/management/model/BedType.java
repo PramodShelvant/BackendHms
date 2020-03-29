@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 	@Table(name = "bed_type")
 	public class BedType {
 		
-		
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;

@@ -15,12 +15,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "item_store")
-
 public class ItemStore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String itemStore;
-	private String code;
+	private String itemStoreName;
+	private String itemStockCode;
 	private String description;
 }

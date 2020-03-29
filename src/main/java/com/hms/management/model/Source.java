@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "source")
-
 public class Source {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

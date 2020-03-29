@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "item_category")
-
 public class ItemCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +24,4 @@ public class ItemCategory {
 	private String itemCategory;
 	private String isActive;
 	private String description;
-	private String createdAt;
-	private String updatedAt;
 }

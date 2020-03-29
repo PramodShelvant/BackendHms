@@ -21,7 +21,7 @@ public class Department
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String departmentName;
+	private String name;
 	private String isActive;
 
 }

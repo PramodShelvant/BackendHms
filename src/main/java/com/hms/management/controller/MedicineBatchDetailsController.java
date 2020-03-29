@@ -15,7 +15,7 @@ import com.hms.management.model.MedicineBatchDetails;
 import com.hms.management.repository.MedicineBatchDetailsRepo;
 @CrossOrigin
 @RestController
-@RequestMapping("medicineBatchDetails")
+@RequestMapping("/medicineBatchDetails")
 public class MedicineBatchDetailsController {
 	@Autowired
 	MedicineBatchDetailsRepo medicineBatchDetailsRepo;

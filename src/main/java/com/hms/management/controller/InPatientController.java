@@ -47,7 +47,7 @@ public class InPatientController {
 		
 	}
 	@CrossOrigin
-	@RequestMapping(value = "/{doctorId}/{disChargeStatus}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "doctor/{doctorId}/{disChargeStatus}", method = RequestMethod.GET, produces = "application/json")
     public Object getByDoctorId(@PathVariable String doctorId, @PathVariable String disChargeStatus){
 		System.out.println("doctorId");
 		System.out.println("disChargeStatus");

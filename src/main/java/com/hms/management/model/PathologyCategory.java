@@ -15,10 +15,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "pathology_category")
-
 public class PathologyCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String categoryName;
+	private String name;
 }

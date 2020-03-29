@@ -4,18 +4,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 
  
  @SpringBootApplication
-  public class MYApplication{
+ @EnableWebMvc
+  public class MYApplication extends SpringBootServletInitializer{
 
 //	  
-//	  @Override
-//	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//		  return application.sources(MYApplication.class);
-//	  }
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	 return application.sources(MYApplication.class);
+  }
 	  
 	public static void main(String[] args) {
 		SpringApplication.run(MYApplication.class, args);

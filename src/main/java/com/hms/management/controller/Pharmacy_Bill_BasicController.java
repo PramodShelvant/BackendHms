@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hms.management.model.Pharmacy_Bill_Basic;
 import com.hms.management.repository.Pharmacy_Bill_BasicRepo;
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RestController
-@RequestMapping("pharmacyBillBasic")
+@RequestMapping("/pharmacyBillBasic")
 public class Pharmacy_Bill_BasicController {
 	
 	@Autowired

@@ -1,8 +1,5 @@
 package com.hms.management.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,33 +9,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hms.management.model.ComplaintType;
-import com.hms.management.model.DoctorOpdCharge;
-import com.hms.management.repository.DoctorOpdChargeRepository;
-import com.hms.management.repository.OrganisationsChargesRepo;
-@CrossOrigin
+import com.hms.management.model.Setting_Charges;
+import com.hms.management.repository.OrganisationChargesRepo;
 @RestController
-@RequestMapping("/doctorOpdCharge")
-public class DoctorOpdChargeController {
+@CrossOrigin
+@RequestMapping("/organisationCharges")
+public class OrganisationChargeController {
 	@Autowired
-	 private DoctorOpdChargeRepository docOpdCharge;
+	private OrganisationChargesRepo organisationChargesRepo;
+	
 	@PostMapping("/add")
-	public <T> T add(@RequestBody DoctorOpdCharge b) {
-		return (T) docOpdCharge.save(b);
+	public <T> T add(@RequestBody Setting_Charges b) {
+		return (T) organisationChargesRepo.save(b);
 		
 	}
 	
 	@GetMapping("/get")
 	public <T> T get() {
-		return (T) docOpdCharge.findAll();
+		return (T) organisationChargesRepo.findAll();
 		
 	}
 	
 	@GetMapping("/delete/{id}")
 	public <T> T delete(@PathVariable int id) {
-		docOpdCharge.deleteById(id);
+		organisationChargesRepo.deleteById(id);
 		return (T) (""+id);
 		
 	}
+	
 
 }

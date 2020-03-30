@@ -30,7 +30,7 @@ import com.hms.management.serviceimpl.UserRegistrationServiceImpl;
 
 @CrossOrigin
 @RestController
-@RequestMapping("staff")
+@RequestMapping("/staff")
 public class StaffCotroller {
 
 	

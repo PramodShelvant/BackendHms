@@ -14,13 +14,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "organisations_charges")
+@Table(name = "tpa_organisation_charges")
 public class OrganisationsCharges {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String orgId;
-	private String chargeType;
-	private int chargeId;
-	private Float orgCharge;
+	private int  organisationId;
+	private String organisationName;
+	private String charges;
 }

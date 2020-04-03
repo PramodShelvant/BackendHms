@@ -26,6 +26,7 @@ public class DoctorOpdCharge {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String doctorId;
+	private String doctorName;
 	private float standardCharge;
 	 @OneToMany(targetEntity = DoctorCharges.class,cascade = CascadeType.ALL)
 	    @JoinColumn(name = "pid",referencedColumnName = "id",insertable = true, updatable = true, nullable=false)

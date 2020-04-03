@@ -24,6 +24,7 @@ public class DoctorOpdChargeController {
 	 private DoctorOpdChargeRepository docOpdCharge;
 	@PostMapping("/add")
 	public <T> T add(@RequestBody DoctorOpdCharge b) {
+		System.out.println(b);
 		return (T) docOpdCharge.save(b);
 		
 	}

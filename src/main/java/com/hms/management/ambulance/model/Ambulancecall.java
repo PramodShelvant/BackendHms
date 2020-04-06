@@ -1,4 +1,4 @@
-package com.hms.management.model;
+package com.hms.management.ambulance.model;
 
 import java.util.Date;
 
@@ -16,27 +16,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table (name = "appointment")
-public class Appointment {
-
-	
+@Table(name = "vehiclecall")
+public class Ambulancecall {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String aptId;
-    private String patientId;
- 	private String date;
 	private String patientName;
-	private String gender;
-	private String email;
-	private String mobileNumber;
+	private String contactNo;
 	private String address;
-	private String doctorId;
-	private String message;
-	private String appointmentStatus;
-	private String source;
-	private String department;
- 	private Date createdAt;
- 	private Date updatedAt;
- 	
+	private int vehicleid;
+	private String amount;
+	private String date;
+	private Date createdAt;
+	private Date updatedAt;
 }

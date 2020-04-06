@@ -31,8 +31,10 @@ public class UserRegistrationServiceImpl implements UserRegistrationService{
 		Date date= new Date();
 		userRegistration.setUserId("UserId-"+DateTimeFormatter.ofPattern("yyyyMMddhhmmss").format(LocalDateTime.now()));
 
- 		UserRegistration email=userRegistrationRepository.findByEmail(userRegistration.getEmail());
-		UserRegistration mobileno=userRegistrationRepository.findByMobileNo(userRegistration.getMobileNo());
+ 		//UserRegistration email=userRegistrationRepository.findByEmail(userRegistration.getEmail());
+		//UserRegistration mobileno=userRegistrationRepository.findByMobileNo(userRegistration.getMobileNo());
+		UserRegistration email=null;
+		UserRegistration mobileno=null;
 
 		if(mobileno != null){
 			response.put("msg", "duplicate mobileno");
@@ -77,7 +79,8 @@ public class UserRegistrationServiceImpl implements UserRegistrationService{
 		} else {
 			String email = userRegistration.getEmail();
                if (email != null) {
-       			UserRegistration user = userRegistrationRepository.findByEmail(email);
+       			//UserRegistration user = userRegistrationRepository.findByEmail(email);
+       			UserRegistration user = null;
     			if (user != null) {
                   if (user.getPassword().toString().equals(pwd)) {
              		  user.setPassword(null);

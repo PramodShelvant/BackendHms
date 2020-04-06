@@ -27,7 +27,7 @@ public class PostalRecieveListController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
+	private static String UPLOADED_FOLDER = "uploads/";
 
 	@Autowired
 	public PostalRecieveListServiceImpl postalRecieveListServiceImpl;
@@ -58,6 +58,7 @@ public class PostalRecieveListController {
 		n.setReferenceNo(postalRecieveListBean.getReferenceNo());
 		n.setAddress(postalRecieveListBean.getAddress());
 		n.setNote(postalRecieveListBean.getNote());
+		n.setId(postalRecieveListBean.getId());
         return postalRecieveListServiceImpl.addPostalRecieveList(n);
     }
 

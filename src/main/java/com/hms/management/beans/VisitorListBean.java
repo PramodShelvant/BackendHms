@@ -16,7 +16,7 @@ public class VisitorListBean {
 	private String purpose;
 	private String name;
 	private String phone;
-	private Date date;
+	private String date;
 	private String inTime;
 	private String outTime;
 	private String action;

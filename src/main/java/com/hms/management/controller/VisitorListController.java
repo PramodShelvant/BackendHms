@@ -31,7 +31,7 @@ public class VisitorListController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
+	private static String UPLOADED_FOLDER = "uploads/";
 
 	@Autowired
 	public VisitorListServiceImpl visitorListServiceImpl;
@@ -70,6 +70,7 @@ public class VisitorListController {
         n.setOutTime(visitorListBean.getOutTime());
         n.setAction(visitorListBean.getAction());
         n.setNote(visitorListBean.getNote());
+        n.setId(visitorListBean.getId());
 		return visitorListServiceImpl.addVisitors(n);
 	}
     

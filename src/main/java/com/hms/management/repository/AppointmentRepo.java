@@ -1,4 +1,4 @@
-package com.hms.management.repository;
+ package com.hms.management.repository;
 
 import java.util.List;
 

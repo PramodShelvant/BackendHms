@@ -27,7 +27,7 @@ public class ComplainTypeController {
 	
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
+	private static String UPLOADED_FOLDER = "uploads/";
 
 	@Autowired
 	public ComplainTypeServiceImpl complainTypeServiceImpl;
@@ -63,6 +63,7 @@ public class ComplainTypeController {
         n.setDescription(complainTypeBean.getDescription());
         n.setAssigned(complainTypeBean.getAssigned());
         n.setNote(complainTypeBean.getNote());
+        n.setId(complainTypeBean.getId());
 		return complainTypeServiceImpl.addComplainType(n);
 	}
 

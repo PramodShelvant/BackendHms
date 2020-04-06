@@ -24,7 +24,7 @@ import com.hms.management.serviceimpl.PostalDisPatchListServiceImpl;
 public class PostalDisPatchListController {
 	
 	
-	private static String UPLOADED_FOLDER = "//home//madarsha//Desktop//D//";
+	private static String UPLOADED_FOLDER = "uploads/";
 
 	@Autowired
 	public PostalDisPatchListServiceImpl postalDisPatchListServiceImpl;
@@ -54,6 +54,7 @@ public class PostalDisPatchListController {
 			 n.setReferenceNo(postalDisPatchListBean.getReferenceNo());
 			 n.setNote(postalDisPatchListBean.getNote());
 			 n.setToTitle(postalDisPatchListBean.getToTitle()); 
+			 n.setId(postalDisPatchListBean.getId());
 		     return postalDisPatchListServiceImpl.addPostDisList(n);
   	       }
 	@CrossOrigin

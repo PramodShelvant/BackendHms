@@ -64,6 +64,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 		try {
   		if(appointment.getPatientId()=="" && userRegistrationRepository.save(u)!=null) {
 		EmailSender.sendMail("revanhj1993@gmail.com", "sunday14031993", "userName:"+appointment.getEmail()+" password:12345", appointment.getEmail());
+		
 		return appointmentRepo.save(appointment);
 		}
 		}
